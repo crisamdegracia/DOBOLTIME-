@@ -2,4 +2,63 @@ body {
     background: #222;
     color: antiquewhite;
 }
+.third-col,
+.second-col,
+.first-col {
+    text-align: center;
+    border: 1px solid #bbf;
+}
+
+.second-col {
+}
+
+.third-col {
+    
+}
+
+
+#spinnerOut {
+    text-align: center;
+    height: 200px;
+    width: 200px;
+    border: 3px solid red;
+    padding: 2px;
+    border-radius: 100%;
+    -webkit-animation: spin 1s infinite linear;
+    animation: spin 1s infinite linear;
+
+}
+
+#spinnerIn {
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+    border: 3px solid green;
+}
+
+
+
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    } to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+
+
+@keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    } to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+
 

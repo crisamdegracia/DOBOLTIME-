@@ -1,0 +1,172 @@
+body {
+    background: ;
+    color: antiquewhite;
+    margin: 0;
+    padding: 0;
+}
+
+#topbar {
+    width: 800px;
+    height: 50px;
+    margin: 2px auto;
+    padding: 5px 2px 5px 5px;
+    /*    border: 1px solid #222;*/
+}
+
+#topbar h3 {
+    margin: auto;
+    color:  ;
+    background-color: #222;
+    width: ;
+    text-align: center;
+    border-radius: 10px;
+    float: left;
+    letter-spacing: 5px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+
+ul {
+    list-style: none;
+    
+}
+
+
+#topbar li {
+
+    color: #222;
+    margin: 1px 2px;
+    border: 1px solid  #ccc;
+    float: left;
+    padding: 2px 5px;    
+    border-radius: 10px;
+}
+
+#topbar li:hover {
+    background: #333;
+    color: #afc;
+}
+
+#topbar-textfield {
+    margin-left: 50px ;
+    float:left;
+    border-radius: 10px;
+}
+
+
+#topbar-nav {
+    height: 150px;
+    width: 100%;
+    background: #248;
+    padding: 0 10px;
+}
+
+#topbar-nav-header {
+    width: 40%;
+    padding: 0 ;
+    margin: 0 ;
+    font-family: sans-serif , serif , cursive;
+}
+
+
+#topbar-nav-textfield  h3{
+    display: inline;
+    font-family: serif;
+/*    float: left;*/
+/*    margin-top: 5px;*/
+    
+}
+#topbar-nav-textfield input {
+    display: inline;
+    border-radius: 10px;
+        
+}
+#topbar-nav-textfield {
+/*    display: inline;*/
+/*    width: 40%;*/
+    float: right;
+    position: relative;
+    top: -35px;
+}
+
+ {
+    border: 1px solid red;
+}
+
+#topbar-nav ul {
+    padding: 0 0;
+    float: left;
+/*    margin: 0 auto;*/
+    display: inline-block;
+}
+.topbar-nav-list  {
+    margin: 0 auto;
+    padding: 0 10px  0 2px;
+    border-right: 1px solid  #aaa;
+    display: inline;
+}
+
+.topbar-nav-list:hover {
+    border-bottom: 3px solid red;
+}
+
+
+#page-body  {
+    
+}
+
+#page-body h3 {
+ width: 25%;
+ color: #237;   
+ border-bottom: 5px solid red;
+}
+
+
+#spinnerOut {
+    height: 200px;
+    width: 200px;
+    border: 3px solid red;
+    padding: 2px;
+    border-radius: 100%;
+    -webkit-animation: spin 1s infinite linear;
+    animation: spin 1s infinite linear;
+
+}
+
+
+
+
+
+#spinnerIn {
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+    border: 3px solid green;
+}
+
+
+
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    } to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+
+
+@keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    } to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+
+

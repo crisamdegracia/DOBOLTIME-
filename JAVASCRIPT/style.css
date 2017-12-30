@@ -1,0 +1,36 @@
+#cr1 {
+    background: red;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    float: left;
+}
+
+#cr2 {
+    border-radius: 50px;
+    float: left;
+    
+    background: #222;
+    width: 100px;
+    height: 100px
+    
+}
+
+#cr3 {
+    border-radius: 50px;
+    float: left;
+    
+    background: #031;
+    width: 100px;
+    height: 100px
+    
+}
+
+#cr4 {
+    border-radius: 50px;    
+    background: green;
+    width: 100px;
+    height: 100px;
+    float: left;
+    
+}

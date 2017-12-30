@@ -1,3 +1,9 @@
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -19,8 +25,9 @@
 
                 <input class="form-control" type="text" id="text" name="text" minlength=3 maxlength="10" placeholder="Guess the animal" autofocus required >
                 <input type="button" class="btn btn-success" id="btn" value="Enter">
+                <h1 id="ans"></h1>
+                <div class="btn btn-danger" id="retry">retry?</div>
             </form>
-            <h1 id="ans"></h1>
         </div>
 
         <div class="container">
@@ -36,54 +43,102 @@
         <script src="./bootstrap/js/bootstrap.min.js"></script>
 
         <script type="text/javascript">
-
+            var retry = document.getElementById('retry');
             var text = document.getElementById('text');
             var btn = document.getElementById('btn');
             var fword = document.getElementById('ans');
-            var arr = ['dog', 'cat' , 'lizzard' , 'snake']
+            var arr = ['dog', 'cat' , 'lizzard' , 'snake'];
             var life = 9 ;
 
-            btn.addEventListener('click', function(e){
-                var ans = String(arr[Math.floor(Math.random() * arr.length)])
-                
-                if(!text.value){
-                    fword.innerHTML = "Its Blank!"
-                } 
-                else {
-                    
-                    for(var i = 0 ; i < life ; i++ ){
-                        
-                        
-                if(text.value !== ans  ) {
+            retry.style.display = 'none';
 
+            btn.addEventListener('click', function(event){
 
-//                    console.log(ans)
-//                    console.log(i)
-//                    console.log(life)
-                    fword.innerHTML = "Nah! You're Wrong! the answer is " + ans + " Your life is " + life-- + " remaining" ;
-//
-//                    
-//                    life--;
-                    e.stopPropagation()
-                    e.preventDefault();
-                    
-//                  
-                }
-                else {
-
-                   fword.innerHTML = "CORRECT!"
-                     e.stopPropagation();
-                }
-
-                    fword.innerHTML = "GAME OVER!";
-                    }
-                    
-
-                }
-
+                verifyAnswer(fword,arr,life);
 
             })
+            
+            retry.addEventListener('click' , function(){
 
+            reset(fword,life)    
+            })
+            
+
+
+
+
+
+            function verifyAnswer(f,arr, n){
+
+                event.preventDefault();
+                event.stopPropagation();
+                var ans = String(arr[Math.floor(Math.random() * arr.length)])
+
+                if(!text.value){
+                    f.innerHTML = "Its Blank!"
+                } 
+
+                else {
+
+                    if(text.value !== ans  ) {
+
+                        for(var i = 0 ; i < n ; i++ ){ 
+
+                            f.innerHTML = "Nah! You're Wrong! the answer is " + ans + " Your life is " + n + " remaining" ;
+                            console.log(n)
+
+                        }
+
+                        if( n === 0 ) {
+
+                            f.innerHTML = "GAME OVER!";
+                            retry.style.display = 'block';
+                            btn.style.display = 'none';
+                            //i++;
+                        } else {
+
+                            console.log(typeof(n) + " " + n)
+
+                            life--;
+                        }   
+
+                    }
+
+
+
+
+
+
+                    else {
+
+                        f.innerHTML = "CORRECT!"
+                        retry.style.display = 'block';
+                        btn.style.display = 'none';
+                        n = 9;
+
+
+                    }
+
+                }
+
+
+            }
+
+
+
+            function reset(f,n){
+                fword.innerHTML = '';
+                life = 9;
+                retry.style.display = 'none';
+                text.value = '';
+                btn.style.display = 'block';
+            }
+
+
+
+
+
+            
 
 
         </script>

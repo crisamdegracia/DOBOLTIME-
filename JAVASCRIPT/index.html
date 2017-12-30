@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>JAVASCRIPT!!!</title>
         <link rel="stylesheet" href="./font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
-
+        <link rel="stylesheet" href="./devicon.min.css">
         <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
 
         <link rel="stylesheet" href="./style.css">
@@ -15,31 +15,18 @@
         <div class="container">
             <h1> HELLO WORLD!</h1>        
 
-            <div id="btnred" class="btn btn-danger">
-                button
-            </div>
+            <form name="text" action="">
 
-            <div id="btnred2" class="btn btn-danger">
-                button2
-            </div>
-
-            <div id="btnred3" class="btn btn-danger">
-                button3
-            </div>
-                
-                
-                <p id="text"> HELLO SAM! </p>
-                
-                <h1 id="say"></h1>
+                <input class="form-control" type="text" id="text" name="text" minlength=3 maxlength="10" placeholder="Guess the animal" autofocus required >
+                <input type="button" class="btn btn-success" id="btn" value="Enter">
+            </form>
+            <h1 id="ans"></h1>
         </div>
-        
-        asdsa 
+
         <div class="container">
-            <div id="cr1"></div>
-            <div id="cr2"></div>
-            <div id="cr3"></div>
-            <div id="cr4"></div>
-            
+
+
+
         </div>
 
 
@@ -50,65 +37,55 @@
 
         <script type="text/javascript">
 
-            var btnred = document.getElementById("btnred");
-            var btnred2 = document.getElementById("btnred2");
-            var btnred3 = document.getElementById("btnred3");
-            var text = document.getElementById("text");
-            var cr1 = document.getElementById("cr1");
-            var cr2 = document.getElementById("cr2");
-            var cr3 = document.getElementById("cr3");
-            var cr4 = document.getElementById("cr4");
-            
-            
-            var tweets = ['i' , 'love' ,'you'];
-            
-            
-//            
-//            document.getElementById("btnred").onclick = function(){
-//                
-//               cr1.style.display = "block";
-//               cr2.style.display = "block";
-//               cr3.style.display = "block";
-//               cr4.style.display = "block";
-//            
-//            }
+            var text = document.getElementById('text');
+            var btn = document.getElementById('btn');
+            var fword = document.getElementById('ans');
+            var arr = ['dog', 'cat' , 'lizzard' , 'snake']
+            var life = 9 ;
 
-            
-            btnred2.addEventListener('click' , function(){
-                alert('KONGNGNGNG!');
-            });
-            
-            btnred3.addEventListener('click' , function(){
-
-                text.style.display = "none"
-            });
-
-            
-            
-            cr1.addEventListener('click' , function(){
-                cr1.style.display = "none"
-            })
-             cr2.addEventListener('click' , function(){
-                cr2.style.display = "none"
-            })
-             cr3.addEventListener('click' , function(){
-                cr3.style.display = "none"
-            })
-             cr4.addEventListener('click' , function(){
-                cr4.style.display = "none"
-            })
-            
-
-           btnred.addEventListener('click' , function(){
+            btn.addEventListener('click', function(e){
+                var ans = String(arr[Math.floor(Math.random() * arr.length)])
                 
-               var num = 10;
-               for(i=0;i<num;i++){
-                   console.log(num)
-               }
+                if(!text.value){
+                    fword.innerHTML = "Its Blank!"
+                } 
+                else {
+                    
+                    for(var i = 0 ; i < life ; i++ ){
+                        
+                        
+                if(text.value !== ans  ) {
+
+
+//                    console.log(ans)
+//                    console.log(i)
+//                    console.log(life)
+                    fword.innerHTML = "Nah! You're Wrong! the answer is " + ans + " Your life is " + life-- + " remaining" ;
+//
+//                    
+//                    life--;
+                    e.stopPropagation()
+                    e.preventDefault();
+                    
+//                  
+                }
+                else {
+
+                   fword.innerHTML = "CORRECT!"
+                     e.stopPropagation();
+                }
+
+                    fword.innerHTML = "GAME OVER!";
+                    }
+                    
+
+                }
+
+
             })
-            
-            
-            
+
+
+
         </script>
 
     </body>

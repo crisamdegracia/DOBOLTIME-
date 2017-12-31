@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Reaction Tester Project</title>
+        <link rel="stylesheet" href="./font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="./devicon.min.css">
+        <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+
+        <!--        <link rel="stylesheet" href="./style.css">-->
+        <style>
+            #boxContainer {
+                border: 1px solid ;
+                width: 599px;
+                height: 500px;
+            }
+            #movingBox {
+
+                border: 1px solid #382ac2;
+                height: 40px;
+                width: 40px;
+                background-color: #aa2;
+                position: relative;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <div class="container">
+
+            <h1>Test Your Reaction</h1>
+            <p>Click on the boxes and circles as quickly as you can!</p>
+
+            <p> Your time: 0.<span id="yourTime"> </span></p>
+
+            <div id="boxContainer">
+                <div id="movingBox"></div>
+            </div>        
+        </div>    
+
+        <script src="jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/tether/1.4.0/tether.min.js"></script>
+        <script src="./bootstrap/js/bootstrap.min.js"></script>
+
+        <script type="text/javascript">
+
+            var time    = document.getElementById('yourTime'),
+                box     = document.getElementById('movingBox');
+
+
+            box.addEventListener('click' , function(){
+                var start = new Date().getTime();
+
+                                           
+             
+                var end = new Date().getMilliseconds();
+                
+                var timeTaken = (end - start) / 1000 ;  
+                time.innerHTML = timeTaken + 's';
+                
+                setTimeout(movingBox(), Math.floor(Math.random()*19))   
+
+            })        
+
+
+
+
+
+            function movingBox(){
+                //                
+                box.style.height = `${Math.floor(Math.random()*200)}px`;
+                box.style.width = `${Math.floor(Math.random()*200)}px`;
+                box.style.borderRadius = `${Math.floor(Math.random()*200)}px`;
+                box.style.backgroundColor = getRandomColor();
+                box.style.top = `${Math.floor(Math.random()*300)}px`;
+                box.style.bottom = `${Math.floor(Math.random()*300)}px`;
+                box.style.left = `${Math.floor(Math.random()*300)}px`;
+                box.style.right = `${Math.floor(Math.random()*300)}px`;
+                
+
+            }
+
+
+
+         
+            
+
+            function getRandomColor() {
+                var letters = '0123456789ABCDEF';
+                var color = '#';
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+
+
+        </script>
+
+
+    </body>
+</html>

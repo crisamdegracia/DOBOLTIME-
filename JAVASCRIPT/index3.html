@@ -32,9 +32,11 @@
             <h1>Test Your Reaction</h1>
             <p>Click on the boxes and circles as quickly as you can!</p>
 
-            <p> Your time: 0.<span id="yourTime"> </span></p>
+            <p> Your time: <span id="yourTime"> </span></p>
 
-            <div id="boxContainer">
+            <div class="text-center" id="boxContainer">
+               
+                <h4 class="btn btn-success" id="btnStart">START!</h4>
                 <div id="movingBox"></div>
             </div>        
         </div>    
@@ -44,22 +46,22 @@
         <script src="./bootstrap/js/bootstrap.min.js"></script>
 
         <script type="text/javascript">
-
+            
             var time    = document.getElementById('yourTime'),
-                box     = document.getElementById('movingBox');
-
-
+                box     = document.getElementById('movingBox'),
+                btnStart     = document.getElementById('btnStart');
+            var start = new Date().getTime();
+                box.style.display = 'none';
+            
+            btnStart.addEventListener('click' , function(){
+                box.style.display = 'block';
+                btnStart.style.display = 'none';
+            })
+            
             box.addEventListener('click' , function(){
-                var start = new Date().getTime();
+                                
 
-                                           
-             
-                var end = new Date().getMilliseconds();
-                
-                var timeTaken = (end - start) / 1000 ;  
-                time.innerHTML = timeTaken + 's';
-                
-                setTimeout(movingBox(), Math.floor(Math.random()*19))   
+                timeout(start)
 
             })        
 
@@ -67,24 +69,40 @@
 
 
 
-            function movingBox(){
-                //                
-                box.style.height = `${Math.floor(Math.random()*200)}px`;
-                box.style.width = `${Math.floor(Math.random()*200)}px`;
-                box.style.borderRadius = `${Math.floor(Math.random()*200)}px`;
-                box.style.backgroundColor = getRandomColor();
-                box.style.top = `${Math.floor(Math.random()*300)}px`;
-                box.style.bottom = `${Math.floor(Math.random()*300)}px`;
-                box.style.left = `${Math.floor(Math.random()*300)}px`;
-                box.style.right = `${Math.floor(Math.random()*300)}px`;
-                
+            function movingBox(s,tt){
 
             }
 
 
 
-         
-            
+            function timeout(s){
+
+
+                box.style.display = 'none';
+                var end = new Date().getTime();
+                var timeTaken = (end - s) / 1000 ; 
+
+                time.innerHTML = timeTaken + 's';
+                setTimeout(function(){
+                    start = new Date().getTime();
+
+                    box.style.height = `${Math.floor(Math.random()*200)}px`;
+                    box.style.width = `${Math.floor(Math.random()*200)}px`;
+                    box.style.borderRadius = `${Math.floor(Math.random()*200)}px`;
+                    box.style.backgroundColor = getRandomColor();
+                    box.style.top = `${Math.floor(Math.random()*300)}px`;
+                    box.style.bottom = `${Math.floor(Math.random()*300)}px`;
+                    box.style.left = `${Math.floor(Math.random()*300)}px`;
+                    box.style.right = `${Math.floor(Math.random()*300)}px`;
+                    box.style.display = 'block';
+
+
+                }, Math.floor(Math.random()*1000) )
+
+                console.log(timeTaken*1000)
+
+            }
+
 
             function getRandomColor() {
                 var letters = '0123456789ABCDEF';

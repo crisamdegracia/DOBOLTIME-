@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+
+        <link rel="stylesheet" href="./font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="./devicon.min.css">
+        <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+        <style>
+
+            .circle {
+                width: 150px;
+                height: 150px;
+                background: red;
+                margin: 2px;
+
+            }
+
+            .circle:nth-child(1){
+                background-color: #233;
+                border-radius: 50px;
+                color: #ccc;
+                padding: 50px;
+            }
+            .circle:nth-child(2){        
+                background-color: red;  
+                -webkit-box-shadow: inset h v blur spread rgba(0, 0, 0, .5);
+                box-shadow: inset h v blur spread rgba(0, 0, 0, .5);
+                border-radius: 250px 55px 250px 100px;
+            }
+
+            .circle:nth-child(3){
+                background-color: #acd222;
+                border-radius: 20px 100px 24px 100px;
+            }
+
+
+        </style>
+    </head>
+
+
+
+    <div id="c1" class="container circle">change me</div>
+    <div id="c2" class="container circle"></div>
+    <div id="c3" class="container circle"></div>
+    
+    <p>Laboris malis labore e enim e offendit quem voluptate te ut hic amet aliquip an 
+        quamquam fugiat malis laborum legam. Lorem mentitum ad exercitation, quid 
+        laborum despicationes, anim appellat sed nostrud ex proident quae velit mentitum 
+        enim. Ab quem pariatur quamquam hic ingeniis quem culpa est labore. Ubi multos 
+        eiusmod adipisicing. Iis nisi eruditionem, an legam concursionibus, est irure 
+        cernantur familiaritatem, ut doctrina an aliquip. Tempor ex voluptate.</p>
+        
+        <div id="btn" class="btn btn-danger">press me</div>
+
+
+
+
+
+
+    <script src="jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/tether/1.4.0/tether.min.js"></script>
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+    <body>
+
+
+
+        <script type="text/javascript">
+            var c1 =  $('#c1');
+            var c2 =  $('#c2');
+            var c3 =  $('#c3');
+
+            c1.hover(function(){
+                console.log(c1.text())
+                c1.css({
+                    "backgroundColor": "red",
+                    "borderRadius":"50%"
+
+
+                });
+            })
+
+
+            $('div').hover(function(e){
+               
+                if(($(this).css('backgroundColor')) === 'rgb(255, 0, 0)'){
+                     e.preventDefault()
+                    e.stopImmediatePropagation();
+                    //                    $(this).css('backgroundColor' , 'green')
+                    console.log('i was click!')
+                    $(this).fadeOut(1000,function(){
+                        
+                        $(this).fadeIn(2000, function(){
+                        $(this).animate({
+                            'background-color' : 'red',
+                            'border-radius' : '50%',
+                            'text-align' : 'center',
+                            'padding'   : '5%',
+                            'width' : '50px'
+                            
+                            
+                        },500 , function(){
+                        
+                            $(this).css({
+                                'background-color' : 'blue'
+                            },500).html('AWESOME!');
+                        })
+                        })
+                        
+                    })
+
+                } else {
+                    $(this).css('backgroundColor','black')
+                }
+
+
+            })
+            
+            $('#btn').click(function(){
+                $('p').fadeOut()
+            })
+
+
+
+
+        </script>   
+    </body>
+</html>

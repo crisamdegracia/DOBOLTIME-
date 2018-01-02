@@ -2,128 +2,125 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Document</title>
+        <title>JQUERY</title>
 
         <link rel="stylesheet" href="./font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="./devicon.min.css">
         <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
-        <style>
-
-            .circle {
-                width: 150px;
-                height: 150px;
-                background: red;
-                margin: 2px;
-
-            }
-
-            .circle:nth-child(1){
-                background-color: #233;
-                border-radius: 50px;
-                color: #ccc;
-                padding: 50px;
-            }
-            .circle:nth-child(2){        
-                background-color: red;  
-                -webkit-box-shadow: inset h v blur spread rgba(0, 0, 0, .5);
-                box-shadow: inset h v blur spread rgba(0, 0, 0, .5);
-                border-radius: 250px 55px 250px 100px;
-            }
-
-            .circle:nth-child(3){
-                background-color: #acd222;
-                border-radius: 20px 100px 24px 100px;
-            }
-
-
-        </style>
+        <link rel="stylesheet" href="./jquery-ui/jquery-ui/jquery-ui.css">
     </head>
-
-
-
-    <div id="c1" class="container circle">change me</div>
-    <div id="c2" class="container circle"></div>
-    <div id="c3" class="container circle"></div>
-    
-    <p>Laboris malis labore e enim e offendit quem voluptate te ut hic amet aliquip an 
-        quamquam fugiat malis laborum legam. Lorem mentitum ad exercitation, quid 
-        laborum despicationes, anim appellat sed nostrud ex proident quae velit mentitum 
-        enim. Ab quem pariatur quamquam hic ingeniis quem culpa est labore. Ubi multos 
-        eiusmod adipisicing. Iis nisi eruditionem, an legam concursionibus, est irure 
-        cernantur familiaritatem, ut doctrina an aliquip. Tempor ex voluptate.</p>
-        
-        <div id="btn" class="btn btn-danger">press me</div>
-
-
-
-
-
-
-    <script src="jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/tether/1.4.0/tether.min.js"></script>
-    <script src="./bootstrap/js/bootstrap.min.js"></script>
     <body>
 
+        <div class="container">
+            <h1>Form</h1>
 
+            <form action="">
 
+                <div class="alert alert-danger" id="errD"></div>
+                <div class="alert alert-success" id="errS"></div>
+                <div class="form-inline">
+
+                    <label name="name" for="email">Email:</label>
+                    <input id="email" type="email" class="form-control" placeholder="enter Email" name="email" required autofocus >
+                </div>
+
+                <div class="form-inline">
+
+                    <label name="name" for="name">Name:</label>
+                    <input type="text" id="name" class="form-control" placeholder="enter name" required>
+                </div> 
+
+                <div class="form-inline">
+
+                    <label name="name" for="name">TelePhone:</label>
+                    <input type="text" id="phone" class="form-control" placeholder="63123456789" required>
+                </div>
+
+                <div class="form-inline">
+
+                    <label name="name" for="name">Password:</label>
+                    <input type="password" id="password" maxlength="10" pa class="form-control" placeholder="enter PW" required>
+                </div>
+                <div class="form-inline">
+
+                    <label name="name" for="name">Confirm Password:</label>
+                    <input type="password" id="confirmPassword" class="form-control" placeholder="Re-enter PW" required>
+                </div>
+                <input class="btn btn-success" id="btnSubmit" type="submit">
+            </form>
+
+        </div>
+
+        <script src="jquery.min.js"></script>
+        <script src="./jquery-ui/jquery-ui/jquery-ui.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/tether/1.4.0/tether.min.js"></script>
+        <script src="./bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="main.js"></script>
         <script type="text/javascript">
-            var c1 =  $('#c1');
-            var c2 =  $('#c2');
-            var c3 =  $('#c3');
 
-            c1.hover(function(){
-                console.log(c1.text())
-                c1.css({
-                    "backgroundColor": "red",
-                    "borderRadius":"50%"
+            var errD = $('#errD');
+            var errS = $('#errS');
+            var email = $('#email'),
+                name    = $('#name'),
+                tel  = $('#phone'),
+                pw  = $('#password'),
+                cpw  = $('#confirmPassword'),
+                errMsg = '';
+
+            errD.css('display','none');
+            errS.css('display','none');
+
+            $('#btnSubmit').click(function(){
 
 
-                });
-            })
+                if(!validateEmail(email.val())) {
+                    errMsg+= '<p> Email is incorrect. <p> '
 
+                } 
+                if(!$.isNumeric(tel.val())){
+                    errMsg += '<p> Telephone number is incorrect.<p>'
+                }
+                
+                if(!name.val()){
+                    errMsg += '<p> Name cannot be Empty';
+                }
 
-            $('div').hover(function(e){
-               
-                if(($(this).css('backgroundColor')) === 'rgb(255, 0, 0)'){
-                     e.preventDefault()
-                    e.stopImmediatePropagation();
-                    //                    $(this).css('backgroundColor' , 'green')
-                    console.log('i was click!')
-                    $(this).fadeOut(1000,function(){
-                        
-                        $(this).fadeIn(2000, function(){
-                        $(this).animate({
-                            'background-color' : 'red',
-                            'border-radius' : '50%',
-                            'text-align' : 'center',
-                            'padding'   : '5%',
-                            'width' : '50px'
-                            
-                            
-                        },500 , function(){
-                        
-                            $(this).css({
-                                'background-color' : 'blue'
-                            },500).html('AWESOME!');
-                        })
-                        })
-                        
-                    })
+                if(errD.val() !== ''){
+                    errD.css('display','block')
+                    errD.html(errMsg)
+                }
 
-                } else {
-                    $(this).css('backgroundColor','black')
+                if(!errMsg) {
+                    errS.css('display','block');
+                    errS.html('AWESOME!')
+                    console.log('ggggg')
                 }
 
 
-            })
-            
-            $('#btn').click(function(){
-                $('p').fadeOut()
+
             })
 
 
 
 
-        </script>   
+
+            function validateEmail(email) 
+            {
+                var re = /\S+@\S+\.\S+/;
+                return re.test(email);
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+        </script>
     </body>
 </html>

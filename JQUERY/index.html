@@ -1,126 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <title>JQUERY</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <link rel="stylesheet" href="./font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="./devicon.min.css">
-        <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="./jquery-ui/jquery-ui/jquery-ui.css">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>Hello, world!</title>
+
+        <style>
+
+
+            #ewan {
+
+                width: 60em;
+                height: 10em;
+                border: 1px solid #eee;
+                margin: 0 auto;
+                margin-top: 100px;
+                padding-top: 20px ;
+            }
+            .input-field {
+                margin: 2px;
+            }
+            #btnSubmit {
+                margin: 0 auto;
+            }
+
+            #irow {
+                border: 1px solid red;
+            }
+
+        </style>
     </head>
     <body>
 
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="#">Features</a>
+                    <a class="nav-item nav-link" href="#">Pricing</a>
+                    <a class="nav-item nav-link disabled" href="#">Disabled</a>
+                </div>
+            </div>
+        </nav>
+
+
         <div class="container">
-            <h1>Form</h1>
 
-            <form action="">
 
-                <div class="alert alert-danger" id="errD"></div>
-                <div class="alert alert-success" id="errS"></div>
-                <div class="form-inline">
+            <div class="row" id="irow">
+                <div id="ewan" class="col-sm-8 col-md-6">
+                    <form>
 
-                    <label name="name" for="email">Email:</label>
-                    <input id="email" type="email" class="form-control" placeholder="enter Email" name="email" required autofocus >
+                        <div class="input-field">
+                            <input type="text" class="form-control" placeholder="First name">
+                        </div>
+
+                        <div class="input-field ">
+                            <input type="text" class="form-control" placeholder="Last name">
+                        </div>
+                        <div class="text-center">
+
+                            <input id="btnSubmit" type="submit" value="submit" class="btn btn-success">
+                        </div>
+                    </form>
                 </div>
-
-                <div class="form-inline">
-
-                    <label name="name" for="name">Name:</label>
-                    <input type="text" id="name" class="form-control" placeholder="enter name" required>
-                </div> 
-
-                <div class="form-inline">
-
-                    <label name="name" for="name">TelePhone:</label>
-                    <input type="text" id="phone" class="form-control" placeholder="63123456789" required>
-                </div>
-
-                <div class="form-inline">
-
-                    <label name="name" for="name">Password:</label>
-                    <input type="password" id="password" maxlength="10" pa class="form-control" placeholder="enter PW" required>
-                </div>
-                <div class="form-inline">
-
-                    <label name="name" for="name">Confirm Password:</label>
-                    <input type="password" id="confirmPassword" class="form-control" placeholder="Re-enter PW" required>
-                </div>
-                <input class="btn btn-success" id="btnSubmit" type="submit">
-            </form>
-
+            </div>    
         </div>
 
-        <script src="jquery.min.js"></script>
-        <script src="./jquery-ui/jquery-ui/jquery-ui.js"></script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/tether/1.4.0/tether.min.js"></script>
-        <script src="./bootstrap/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="main.js"></script>
-        <script type="text/javascript">
-
-            var errD = $('#errD');
-            var errS = $('#errS');
-            var email = $('#email'),
-                name    = $('#name'),
-                tel  = $('#phone'),
-                pw  = $('#password'),
-                cpw  = $('#confirmPassword'),
-                errMsg = '';
-
-            errD.css('display','none');
-            errS.css('display','none');
-
-            $('#btnSubmit').click(function(){
-
-
-                if(!validateEmail(email.val())) {
-                    errMsg+= '<p> Email is incorrect. <p> '
-
-                } 
-                if(!$.isNumeric(tel.val())){
-                    errMsg += '<p> Telephone number is incorrect.<p>'
-                }
-                
-                if(!name.val()){
-                    errMsg += '<p> Name cannot be Empty';
-                }
-
-                if(errD.val() !== ''){
-                    errD.css('display','block')
-                    errD.html(errMsg)
-                }
-
-                if(!errMsg) {
-                    errS.css('display','block');
-                    errS.html('AWESOME!')
-                    console.log('ggggg')
-                }
-
-
-
-            })
 
 
 
 
 
-            function validateEmail(email) 
-            {
-                var re = /\S+@\S+\.\S+/;
-                return re.test(email);
-            }
-
-
-
-
-
-
-
-
-
-
-
-
-        </script>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
     </body>
 </html>

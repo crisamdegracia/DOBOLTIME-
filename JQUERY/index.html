@@ -11,12 +11,14 @@
         <title>Hello, world!</title>
 
         <style>
-
+            body {
+                margin: 0 auto;
+            }
 
             #ewan {
-
+                border-radius: 20px;
                 width: 60em;
-                height: 10em;
+                height: 13em;
                 border: 1px solid #eee;
                 margin: 0 auto;
                 margin-top: 100px;
@@ -30,15 +32,19 @@
             }
 
             #irow {
-                border: 1px solid red;
+                border-radius: 20px;
+                padding-bottom: 20px;
+                background-color: #232;
+                margin-top: 20px;
+                border: 1px solid #ccc;
             }
 
         </style>
     </head>
     <body>
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Navbar</a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-success">
+            <a class="navbar-brand" href="#">Sambeetech</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -61,19 +67,24 @@
                     <form>
 
                         <div class="input-field">
-                            <input type="text" class="form-control" placeholder="First name">
+                            <input type="text" id="fname" class="form-control" placeholder="First name" required autofocus>
                         </div>
 
-                        <div class="input-field ">
-                            <input type="text" class="form-control" placeholder="Last name">
+                        <div class="input-field">
+                            <input type="text" id="lname" class="form-control" placeholder="Last name" required="1">
+                        </div>
+                        <div class="input-field">
+                            <input type="email" id="email" class="form-control" placeholder="Email" required >
                         </div>
                         <div class="text-center">
 
-                            <input id="btnSubmit" type="submit" value="submit" class="btn btn-success">
+                            <input id="btnSubmit" type="submit" value="submit" class="btn btn-success form-control">
                         </div>
                     </form>
                 </div>
+
             </div>    
+            <h1 id="errorMsg"></h1>
         </div>
 
 
@@ -86,5 +97,60 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
+
+        <script type="text/javascript">
+
+            var fname = $('#fname'),
+                lname  = $('#lname'),
+                email  = $('#email'),
+                btnSubmit  = $('#btnSubmit'),
+                errmsg  = $('#errorMsg'),
+                error  = "";
+
+            btnSubmit.click(function(e){
+                e.preventDefault();
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+                console.log(validateEmail(email.val()))
+                if(!fname.val()){
+                    error += '<p>First name is required.</p>';
+                }
+                if(!lname.val()){
+                    error += '<p>Last name is required.</p>';
+                }
+                if(!email.val()){
+                    error += '<p>Email is required.</p>';
+                }
+                
+                if(validateEmail(email.val())){
+                    console.log(email.val())
+                }
+                if(error){
+                    if (!validateEmail(email.val())){
+                        
+                    errmsg.addClass('alert alert-danger')
+                    errmsg.html(error)
+                    }
+                } else {
+                    errmsg.addClass('alert alert-success')
+                    errmsg.html('ALRIGHT!');
+                }
+
+
+            })
+
+
+            function validateEmail(email) 
+            {
+                var re = /\S+@\S+\.\S+/;
+                return re.test(email);
+            }
+
+        </script>
+
+
+
+
     </body>
 </html>

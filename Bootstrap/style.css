@@ -1,0 +1,32 @@
+body {
+    margin: 0 auto;
+    padding: 0;
+}
+
+#jumbot {
+    background: -webkit-gradient(linear ,  left top, left bottom ,  from(#19a), to(#0a9));
+    background: linear-gradient(180deg ,  #19a, #0a9);
+}
+/*Wisdom tooth*/
+#nameTag {
+    font-family: cursive;
+    color: #ccc;
+}
+
+/*dogs images*/
+#gridImg {
+/*    border: 1px solid #ccc;*/
+    color: #444;
+/*    font-family: cursive;*/
+    font-style: italic;
+}
+
+.cardImage {
+    width: 100%;    
+}
+
+#footer {
+    background-image: url('googleplay.jpg') center center no-repeat;
+    
+    height: 300px;
+}

@@ -46,9 +46,9 @@ if($_POST){
 
 			}
 			else {
-								$errorInput = '<h3 class="alert alert-danger" id="errorAlert">Could not sent message at this time. please try again!</h3>';
+				$errorInput = '<h3 class="alert alert-danger" id="errorAlert">Could not sent message at this time. please try again!</h3>';
 
-				
+
 			}/* if Sent*/
 
 
@@ -143,30 +143,32 @@ if($_POST){
 							errorAlertMessage = $('#errorAlertMessage');
 
 
-			submitBtn.click(function(e){
-				console.log('pakyu!')
+			//			submitBtn.click(function(e){]
+			$('form').submit(function(e){
 				if(!fname.val()){
-					console.log('1')
 					errorMessage += '<p class="mb-0"> Name is required. </p>';
 				}
 				if(!email.val()){
-					console.log('2')
 					errorMessage += '<p class="mb-0"> Email is required </p>'
 				}
 				if(!message.val()){
-					console.log('3')
 					errorMessage += '<p class="mb-0"> Please tell us something!';
 				}
 
 				if(errorMessage){
+//					e.preventDefault();
+
 					errorAlertMessage.addClass('alert-danger');
 					errorAlertMessage.html(errorMessage +' FROM JS') ;
 				} else {
+//					e.preventDefault();
+					
+					$('form').off('submit').submit();
 					errorAlertMessage.addClass('alert-success');
-					errorAlertMessage.html('MESSAGE SENT FROM JS')
+					errorAlertMessage.html('MESSAGE SENT FROM JS');
 				}
 
-
+			
 			})
 
 

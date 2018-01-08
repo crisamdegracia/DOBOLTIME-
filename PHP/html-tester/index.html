@@ -1,0 +1,118 @@
+
+
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+
+		<title>Get in touch</title>
+	</head>
+	<body>
+		<div class="container mt-5 pt-3">
+			<h1> Get in touch with us!</h1>
+
+			<h3 class="alert" id="errorAlertMessage"></h3>
+
+			<form>
+
+				<div class="form-group">
+
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="basic-addon1">N</span>
+						</div>
+						<input type="text" name="name" class="form-control" id="fname" placeholder="Enter your name" aria-label="name" aria-describedby="basic-addon1">
+					</div>
+				</div>	<!--NAME-->
+
+				<div class="form-group">
+
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text"  id="basic-addon1">@</span>
+						</div>
+
+						<input type="email" id="pangEmail" class="form-control" name="email" placeholder="yourmail.com" aria-label="Username" aria-describedby="basic-addon1">
+					</div>
+				</div><!--EMAIL-->
+
+				<div class="form-group">
+					<textarea  id="fmessage" name="message" class="form-control" cols="30" rows="10"></textarea>
+				</div><!--MESSAGE-->
+
+
+
+
+				<!--				<input id="submitBtn" type="submit" value="submit" class="btn btn-success">-->
+				<input id="submitBtn" type="button" value="submit" class="btn btn-success">
+			</form>
+
+
+
+		</div>
+
+
+
+
+
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+		<script type="text/javascript">
+
+
+			var fname = $('#fname'),
+							email = $('#pangEmail'),
+							fmessage = $('#fmessage'),
+							submitBtn = $('#submitBtn'),
+							errorMessage = '',
+							errorAlertMessage = $('#errorAlertMessage');
+
+
+			submitBtn.click(function(e){
+				console.log('-------------------------------')
+				console.log(fname.val())
+				console.log(email.val())
+				console.log(fmessage.val())
+				console.log('-------------------------------')
+				if(!email.val()){
+//					console.log('EMAIL IS REQUIRED~!')
+										errorMessage += '<p class="mb-0"> Email is required </p>';
+				}
+				if(!fname.val()){
+//					console.log('NAME IS REQUIRED!')
+										errorMessage += '<p class="mb-0"> Name is required. </p>';
+				}
+				if(!fmessage.val()){
+					console.log('message is require!');
+										errorMessage += '<p class="mb-0"> Please tell us something!';
+				}
+
+								if(errorMessage){
+									errorAlertMessage.addClass('alert-danger');
+									errorAlertMessage.html(errorMessage +' FROM JS') ;
+								} else {
+									errorAlertMessage.addClass('alert-success');
+									errorAlertMessage.html('MESSAGE SENT FROM JS')
+								}
+								console.log('was lcick!')
+
+//								e.preventDefault();
+			})
+
+
+
+		</script>
+
+
+
+	</body>
+</html>

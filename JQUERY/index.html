@@ -84,7 +84,7 @@
                 </div>
 
             </div>    
-            <h1 id="errorMsg"></h1>
+            <h5 id="errorMsg"></h1>
         </div>
 
 
@@ -100,7 +100,7 @@
 
 
         <script type="text/javascript">
-
+            
             var fname = $('#fname'),
                 lname  = $('#lname'),
                 email  = $('#email'),
@@ -109,9 +109,9 @@
                 error  = "";
 
             btnSubmit.click(function(e){
-                e.preventDefault();
-                e.stopPropagation();
-                e.stopImmediatePropagation();
+             
+//                e.stopPropagation();
+//                e.stopImmediatePropagation();
                 console.log(validateEmail(email.val()))
                 if(!fname.val()){
                     error += '<p>First name is required.</p>';
@@ -131,13 +131,14 @@
                         
                     errmsg.addClass('alert alert-danger')
                     errmsg.html(error)
+                        
                     }
                 } else {
                     errmsg.addClass('alert alert-success')
                     errmsg.html('ALRIGHT!');
                 }
-
-
+                  
+                
             })
 
 
@@ -146,7 +147,7 @@
                 var re = /\S+@\S+\.\S+/;
                 return re.test(email);
             }
-
+             e.preventDefault();
         </script>
 
 

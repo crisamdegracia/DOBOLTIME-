@@ -26,7 +26,7 @@ body {
 }
 
 #footer {
-    background-image: url('googleplay.jpg') center center no-repeat;
+    background: url('googleplay.jpg') center no-repeat;
     
     height: 300px;
 }

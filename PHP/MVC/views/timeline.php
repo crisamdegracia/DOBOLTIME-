@@ -11,7 +11,7 @@
 
 			<div class="col-md-4 my-5 py-3">
 				<h4 class="text-info">RECENT TWEETS</h4>
-				<p> <?php echo displayTweets('public') ?> </p>
+				<p> <?php echo displayTweets('isFollowing') ?> </p>
 
 			</div> 
 

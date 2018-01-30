@@ -13,9 +13,6 @@ if( ( array_key_exists('id', $_SESSION ) && $_SESSION['id'] ) OR (array_key_exis
 	
 } 
 	
-	
-
-
 if(mysqli_connect_errno()){
 	die('SERVER ERROR');
 } else{

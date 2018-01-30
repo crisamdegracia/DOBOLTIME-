@@ -43,14 +43,13 @@
 
 	$('#diary').bind('input propertychange', function(){
 
-
+		
 		$.ajax({
 			method: "POST",
-			url: "secretpage.php",
-			data:{content: $('#diary')}
-		}).done(function(msg){
-			alert(msg);
+			url: "decryptor.php",
+			data:{content: $('#diary').val()}
 		})
+	
 	})
 
 </script>

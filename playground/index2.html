@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>JavsPlay</title>
+	</head>
+	<style type="text/css">
+		.active {
+			background-color: #232;
+		}
+
+	</style>
+	<body>
+
+
+		<h1 id="headline">Click List item to replace this text.</h1>
+		<button id="btn">Click me</button>
+		<ul id="list">
+			<li>first item</li>
+			<li>second item</li>
+			<li>third item</li>
+			<li>fourth item</li>
+			<li>fifth item</li>
+
+
+		</ul>
+
+	</body>
+
+	<script text="text/javascript">
+
+
+		var btn = document.getElementById('btn'),
+				headline = document.getElementById('headline'),
+				listItems = document.getElementById('list').getElementsByTagName('li'),
+				ourList = document.querySelector('#list'),
+				counter = 1;
+
+		ourList.addEventListener("click", x )
+
+		console.log(ourList)
+		
+function x(e){
+			
+			if(e.target.nodeName == "LI"){
+
+				headline.innerHTML = e.target.innerHTML;
+				
+				for(let i = 0 ; i < e.target.parentNode.children.length ; i++){
+					e.target.parentNode.children[i].classList.remove('active');
+				}
+				e.target.classList.add('active');
+			}
+
+		}
+
+
+
+	btn.addEventListener('click' , function(e){
+
+			ourList.innerHTML += '<li>Something new ' +  counter +'</li>'; 
+			counter++;
+
+		})
+
+
+	</script>
+</html>

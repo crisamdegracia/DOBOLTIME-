@@ -1,4 +1,3 @@
-
 <footer class="footer">
 	<div class="container">
 		<span class="text-muted">&copy; Tweeter 2017</span>
@@ -17,22 +16,26 @@
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Login</h5>
+				<h5 class="modal-title" id="modalTitle">Login</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
+
 			<div class="modal-body">
-				<form action="" method="post">
-					<input type="hidden" value="1" id="loginActive">
+				<div class="alert alert-danger" id="alertMsg"></div>
+				<form method="post">
+					<input type="hidden" value="1" id="loginActive" name="loginActive">
 					<input type="email" class="form-control mb-1" placeholder="Enter Email" name="email" id="email" autocomplete="off">
 					<input type="password" name="password" class="form-control" id="password" placeholder="Enter password" required autocomplete="off">
 				</form>
 			</div>
+
 			<div class="modal-footer">
-				<a href="" id="toggleLogin">Sign up</a>
+
+				<a  class="btn btn-outline-success" id="toggleLogin">Sign up</a>
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary">login</button>
+				<button type="button" id="loginBtn" class="btn btn-primary">login</button>
 			</div>
 		</div>
 	</div>
@@ -41,18 +44,71 @@
 <script type="text/javascript">
 
 	var toggleLogin = $('#toggleLogin'),
-			loginActive = $('#loginActive')
+			loginActive = $('#loginActive'),
+			modalTitle = $('#modalTitle'),
+			loginBtn 		= $('#loginBtn'),
+			email			= $('#email'),
+			password	= $('#password')
 
 
 	toggleLogin.click(function(){
 		if(loginActive.val() == '1' ){
-		
-			
-			
+			modalTitle.html('Sign up');
+			loginBtn.html('Sign up');
+			loginActive.val('0');
+			toggleLogin.html('login');
+
 		} else {
-			alert('WAAA')
+			modalTitle.html('login');
+			loginBtn.html('login');
+			loginActive.val('1');
+			toggleLogin.html('sign up');
 		}
 	})
+
+	loginBtn.click(function(e){
+
+		$.ajax({
+			method: "POST",
+			url: 'actions.php?action=loginSignup',
+			data: "email=" + email.val() + "&password=" + password.val() + "&loginActive=" + loginActive.val(),
+			success: function(result){
+				if(result == '1'){
+
+					window.location.assign('/mvc');
+
+				}
+				else {
+					$('#alertMsg').html(result).show();
+				}
+			}
+
+		})
+
+
+	})
+
+	$('.toggleFollow').click(function(e){
+			var id = $(this).data('userid');
+		
+		$.ajax({
+			method: "POST",
+			url: 'actions.php?action=toggleFollow',
+			data: "userid=" + $(this).data('userid'),
+			success: function(result){
+				if(result == '1'){
+					$("a[data-userid='" + id + "']").html('follow');
+				} else{
+					$("a[data-userid='" + id + "']").html('unfollow');
+				}
+
+			}
+
+			})
+
+		})
+
+
 </script>
 
 </body>

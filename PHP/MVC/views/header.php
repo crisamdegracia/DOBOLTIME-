@@ -31,7 +31,10 @@
 				</ul>
 				<form action="" class="pull-xs-right">
 
-					<?php if( $_SESSION['id']) { ?>
+					<?php if( isset($_SESSION['id'])) { ?>
+					<?php $query = "SELECT * FROM users WHERE id = '".mysqli_real_escape_string($link,$_SESSION['id'])."' "; ?>
+					<?php $row = mysqli_fetch_assoc(mysqli_query($link,$query)); ?>
+					<!--<p class="text-warning" style="border: 1px solid red">NAME :--> <span> <?php echo $row['email'] ?> </span><!--</p>-->
 					<a class="btn btn-outline-danger my-2 my-sm-0" href="?function=logout">logout</a>
 					<?php }  else { ?>
 					<input type="button" class="btn btn-success" value="Login/Signup" data-toggle="modal" data-target="#exampleModal">

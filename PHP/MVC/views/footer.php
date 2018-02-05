@@ -50,7 +50,8 @@
 			email			= $('#email'),
 			password	= $('#password')
 
-
+	
+	//TOGGLING LOGIN
 	toggleLogin.click(function(){
 		if(loginActive.val() == '1' ){
 			modalTitle.html('Sign up');
@@ -66,6 +67,7 @@
 		}
 	})
 
+	//REGISTER ANG LOGGING IN
 	loginBtn.click(function(e){
 
 		$.ajax({
@@ -73,6 +75,8 @@
 			url: 'actions.php?action=loginSignup',
 			data: "email=" + email.val() + "&password=" + password.val() + "&loginActive=" + loginActive.val(),
 			success: function(result){
+				
+//				alert(result);
 				if(result == '1'){
 
 					window.location.assign('/mvc');
@@ -87,7 +91,8 @@
 
 
 	})
-
+	
+	//FOLLOWING AND UNFOLLOWING
 	$('.toggleFollow').click(function(e){
 			var id = $(this).data('userid');
 		
@@ -108,6 +113,26 @@
 
 		})
 
+	
+	//Posting a tweet
+	$('#tweetPostBtn').click(function(e){
+		
+		$.ajax({
+			method: "POST",
+			url: 'actions.php?action=postTweet',
+			data: 'tweet=' + $('#tweetPost').val(),
+			success: function(result){
+			if(result == 'success'){
+				location.reload();
+			}	
+//				alert(result)
+			}
+		})
+		
+//		alert( $('#tweetPost').val())
+	})
+	
+	
 
 </script>
 

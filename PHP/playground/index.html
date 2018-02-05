@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	
+	<style>
+		body {
+
+			background: #333;
+			color: #ccc;
+		}
+		
+		.active {
+			background: #c21;
+		}
+		
+	</style>
+	</head>
+	<body>
+
+		<h1 id="header"> 
+			HELLO WORLD!
+		</h1>
+		<button id="btn" type="button">Add</button>
+		<ul>
+			<li>1st</li>
+			<li>2nd</li>
+			<li>3rd</li>
+			<li>4th</li>
+			<li>5th</li>
+		</ul>
+
+		<script type="text/javascript">
+
+			var pList = document.querySelector('ul'),
+					cList = document.querySelectorAll('li'),
+					h 		= document.querySelector('#header'),
+					btn  	= document.querySelector('#btn')
+			
+		
+			pList.addEventListener('click' , x );
+			
+			function x(e){
+				
+				if(e.target.nodeName == "LI"){
+					
+					for(let i = 0 ; i < e.target.parentNode.children.length ; i++){
+						e.target.parentNode.children[i].classList.remove('active');
+					}
+					
+					e.target.classList.add('active');
+					h.innerHTML = e.target.innerHTML;
+				}
+			}
+			
+			var counter = 0;
+			btn.addEventListener('click', function(e){
+				pList.innerHTML += '<li> new item ' + counter +'</li>'
+				counter++
+			})
+
+
+		</script>
+
+
+	</body>
+</html>

@@ -1,12 +1,15 @@
 <div class="container">
 
+
+
 	<div class="container">
 		<div class="row">
 
+	
 
 			<div class="col-md-8 my-5 py-3">
-				<h4 class="text-info">Followed Tweet's</h4>
-				<p> <?php echo displayTweets('isFollowing') ?> </p>
+				<h4 class="text-info">Search Results</h4>
+				<p> <?php echo displayTweets('search') ?> </p>
 
 			</div> 
 
@@ -16,6 +19,9 @@
 
 			</div>
 		</div>
+
+
+
 
 	</div>
 </div>

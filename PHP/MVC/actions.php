@@ -1,8 +1,7 @@
 <?php
 
 include('functions.php');
-//$_SESSION['id'] = '';
-//$_POST['userid'] = '';
+$_SESSION['id'] = '';
 
 if($_GET['action'] == 'loginSignup'){
 
@@ -63,7 +62,6 @@ if($_GET['action'] == 'loginSignup'){
 				echo "Sorry, Please try again later!";	
 			} 
 
-
 			//LOGIN 
 		} else {
 
@@ -73,12 +71,15 @@ if($_GET['action'] == 'loginSignup'){
 
 			if(mysqli_num_rows($result) > 0 ) {
 
+//				echo $_SESSION['id'];
+//				echo "pwede!";
 				$row = mysqli_fetch_array($result);
 
 				if( $row['email'] == $email && password_verify($password, $row['password'])){
 					echo '1';
 
 					$_SESSION['id'] = $row['id'];
+					
 				} else {
 					echo 'Email or password is incorrect.';
 				}
@@ -105,30 +106,45 @@ if( $_GET['action'] == 'toggleFollow'){
 	if(mysqli_num_rows($result) > 0 ){
 		$row = mysqli_fetch_assoc($result);
 
-		
+
 		//UNFOLLOW
 		$query = "DELETE FROM isfollowing WHERE id = '".mysqli_real_escape_string($link,$row['id'])."' ";
 		mysqli_query($link,$query);
 		echo '1';
 
 	} else {
-		
+
 		//FOLLOW
 		$query =  "INSERT INTO isfollowing (follower , isFollowing) VALUES('".mysqli_real_escape_string($link,$_SESSION['id'])."' , '".mysqli_real_escape_string($link,$_POST['userid'])."')";
 		if(mysqli_query($link ,  $query)) echo '2';
 
 	}
 
-
-
-			
-
-
-
-
 }
 
 
+//POSTING A TWEET
+if($_GET['action'] == 'postTweet'){
+
+	
+//	print_r($_POST['tweet']);
+	
+	if( !$_POST['tweet'] ){
+		echo 'Tweet is empty';
+	}
+	else if(strlen($_POST['tweet']) > 200){
+		echo 'max input reached';
+	} else {
+		
+//	$time = date_default_timezone_set('Asia/Bangkok');
+//		print_r($_POST);
+//		echo date("Y-m-d H:i:s");
+		$query = "INSERT INTO `tweets`( `tweet`, `userid`, `datetime`) VALUES('".mysqli_real_escape_string($link, $_POST['tweet'])."' , '".mysqli_real_escape_string($link, $_SESSION['id'])."'   , '".date("Y-m-d H:i:s")."'  )";
+	 if (mysqli_query($link, $query )) echo 'success'; 
+		else  echo  'Wrong move '.$_POST['tweet'];
+	}
+
+}
 
 
 

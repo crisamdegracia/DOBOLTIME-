@@ -1,0 +1,1 @@
+<?php $link = mysqli_connect('localhost' , 'root' , '' , 'dbusers'); session_start(); ?>

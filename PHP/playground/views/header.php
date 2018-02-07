@@ -31,10 +31,7 @@
 				</ul>
 				<form action="" class="pull-xs-right">
 
-					
-					<a class="btn btn-outline-danger my-2 my-sm-0" href="?page=logout">logout</a>
-					
-					<input type="button" class="btn btn-success" value="Login/Signup" data-toggle="modal" data-target="#exampleModal">
+				<?php displayHeader() ?>
 				
 				</form>
 			

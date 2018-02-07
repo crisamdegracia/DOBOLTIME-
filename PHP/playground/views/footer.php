@@ -24,6 +24,11 @@
 				</button>
 			</div>
 
+
+
+
+
+
 			<div class="modal-body">
 
 				<div class="alert alert-danger" id="alertMsg"></div>
@@ -56,7 +61,10 @@
 			toggleLogin = $('#toggleLogin'),
 			loginActive	= $('#loginActive'),
 			loginBtn		= $('#loginBtn'),
-			modalTitle	= $('#modalTitle')
+			modalTitle	= $('#modalTitle'),
+			tweetPostButton = $('#tweetPostButton'),
+			postAlert		= $('.postAlert'),
+			followBtn		= $('.followBtn');
 
 	alertMsg.hide();
 
@@ -79,7 +87,7 @@
 
 	/*CHECK THE MODAL INPUT FIELD IF EMPTY THEN SEND AJAX*/
 	loginBtn.click(function(e){
-		
+
 		$.ajax({
 			method: "POST",
 			url: "actions.php?action=login",
@@ -97,6 +105,46 @@
 
 		})
 	})
+
+	//POSTING A TWEET
+	tweetPostButton.click(function(e){
+
+		$.ajax({
+			method: "POST",
+			url: "actions.php?action=tweetpost",
+			data: "tweet=" + $('#tweetPost').val(),
+			success: function(result){
+				if(result == '1') {
+					postAlert.removeClass('alert alert-danger');
+					postAlert.html('Tweet Successfully added!').addClass('alert alert-success').show();
+					location.reload();
+
+				} else {
+					postAlert.removeClass('alert alert-success');
+					postAlert.html(result).addClass('alert alert-danger').show();
+				}
+			}
+
+		})
+	})
+
+//FOLLOWING AND UNFOLLOWING
+
+followBtn.click(function(e){
+	
+	$.ajax({
+		method: "POST", 
+		url: 'actions.php?action=following',
+		data: 'followid=' + $(this).data('userid'),
+		success: function(result){
+			alert(result);
+		}
+	})
+	
+	
+})
+	
+	
 </script>
 
 </body>

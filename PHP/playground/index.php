@@ -17,8 +17,6 @@ if (array_key_exists('page' , $_GET)  && $_GET['page'] == 'timeline' ) {
 	include('views/home.php');
 }
 
-
-
 include('views/footer.php');
 
 

@@ -128,23 +128,35 @@
 		})
 	})
 
-//FOLLOWING AND UNFOLLOWING
+	//FOLLOWING AND UNFOLLOWING
 
-followBtn.click(function(e){
-	
-	$.ajax({
-		method: "POST", 
-		url: 'actions.php?action=following',
-		data: 'followid=' + $(this).data('userid'),
-		success: function(result){
-			alert(result);
-		}
+	followBtn.click(function(e){
+
+		/*follow button id*/
+		var	id = $(this).data('userid')
+
+		$.ajax({
+			method: "POST", 
+			url: 'actions.php?action=following',
+			data: 'followerid=' + id ,
+			success: function(result){
+
+				if(result == '1'){
+					
+					$("button[data-userid='"+id+"' ]").html('follow')
+					
+				} else {
+					
+					$("button[data-userid='"+id+"' ]").html('unfollow')
+				}
+
+			}
+		})
+
+
 	})
-	
-	
-})
-	
-	
+
+
 </script>
 
 </body>

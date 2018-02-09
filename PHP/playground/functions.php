@@ -54,12 +54,12 @@ function time_since($since) {
 function displayHeader(){
 	global $link;
 	if(isset($_SESSION['id'] )) {
-		
-		
-	$query = "SELECT * FROM users  WHERE id = '".$_SESSION['id']."' ";
 
-	$row = mysqli_fetch_assoc(mysqli_query( $link , $query));
-		
+
+		$query = "SELECT * FROM users  WHERE id = '".$_SESSION['id']."' ";
+
+		$row = mysqli_fetch_assoc(mysqli_query( $link , $query));
+
 		
 		echo  '<span style="color: #000">'.$row['email']. '</span>	<a class="btn btn-outline-danger my-2 my-sm-0" href="?page=logout">logout</a>';
 	} else { 
@@ -96,26 +96,44 @@ function displayTweets($type){
 		$user = "SELECT * FROM users WHERE id = '".$row['userid']."' " ;
 		$userResult = mysqli_query( $link , $user);
 		$userRow = mysqli_fetch_assoc($userResult);
+		$key = '';
+
+
 
 
 
 		echo '
 
 			<div class=" p-2 m-1" style="border:1px solid #ccc">'
+			
 			//Display user Email
 			.$userRow['email'].
 
 			//Display Time
-			'  &#8226  <span>'. time_since(time() -  strtotime($row['datetime']) ) .'</span><p>'
+			'  &#8226  <span class="text-muted">'. time_since(time() -  strtotime($row['datetime']) ) .'</span><p>'
 
 			//TWeet Content
 			.$row['tweet'].
 
 			//Follow Button
-			'</p> <button class="my-0 btn btn-sm btn-outline-info followBtn" data-userid="'.$row['userid'].'"> follow </button>
-			</div>
+			'</p> <button class="my-0 btn btn-sm btn-outline-info followBtn" data-userid="'.$row['userid'].'">' ;
 
-			';
+		
+		$_SESSION['id'] = (isset($_SESSION['id'])) ? $_SESSION['id'] : '';
+		$followingQuery = "SELECT * FROM following WHERE follower = '".$_SESSION['id']."' AND isFollowing = '".$row['userid']."' " ;
+		$followingResult = mysqli_query($link , $followingQuery);
+		$followingRow = mysqli_fetch_assoc($followingResult);
+
+		if(mysqli_num_rows($followingResult) > 0) {
+
+			echo 'unfollow';
+		} else {
+			echo'follow';
+		}
+
+
+		echo '</button>
+			</div>	';
 	}
 
 

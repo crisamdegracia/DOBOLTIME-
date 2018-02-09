@@ -84,8 +84,42 @@ if(array_key_exists('action' , $_GET) && $_GET['action'] == 'login'){
 /*FOLLOWUNG BUTTON*/
 
 if(array_key_exists('action' , $_GET) && $_GET['action'] == 'following') {
+
+	$user 				= mysqli_real_escape_string($link, $_SESSION['id']);
+	$userFollower = mysqli_real_escape_string($link, $_POST['followerid']);
+
+	$query = "SELECT * FROM following WHERE follower=".$user." AND isFollowing = ".$userFollower." ";
+	$result = mysqli_query($link, $query);
+
 	
-	print_r($_POST);
+	//if follow button has a follower
+	if(mysqli_num_rows($result) > 0 ){
+		
+		$query = "DELETE FROM `following` WHERE follower=".$user." AND isFollowing=".$userFollower." ";
+		
+		
+		//UNFOLLOW
+		if( mysqli_query($link, $query) )	echo "1";
+		
+		//error unfollowed	
+		else echo 'error';
+		
+	
+		//then insert the id of current user 
+	} else {
+		
+	 $query = "INSERT INTO `following`(`follower`, `isFollowing`) VALUES ($user, $userFollower) ";
+		
+		//if inserting new user is a success
+		if( mysqli_query($link, $query))echo '2';
+		
+		//else error
+		else  echo 'Error Can&#39t follow this time';
+
+	}
+
+
+
 }
 
 
@@ -93,9 +127,9 @@ if(array_key_exists('action' , $_GET) && $_GET['action'] == 'following') {
 
 /*POSTING A TWEET!*/
 if(array_key_exists('action' , $_GET) && $_GET['action'] == 'tweetpost'){
-	
-		$tweet = mysqli_real_escape_string($link, $_POST['tweet']);
-	
+
+	$tweet = mysqli_real_escape_string($link, $_POST['tweet']);
+
 	if(!$tweet) {
 		echo 'Your tweet is empty';
 	}

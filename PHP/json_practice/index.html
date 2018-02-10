@@ -55,10 +55,12 @@
 						peoplex.innerHTML += '<li>'+people[i].name+'</li>'
 
 					}
+					
+					people.limit = 3;
 				}
 			}
 			xhttp.open("GET", "people.json", true);
-			xhttp.send();
+			xhttp.send("POST" ,"people.json, true" );
 
 
 		</script>	

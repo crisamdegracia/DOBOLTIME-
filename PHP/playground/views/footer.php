@@ -131,10 +131,10 @@
 	//FOLLOWING AND UNFOLLOWING
 
 	followBtn.click(function(e){
+		
 
 		/*follow button id*/
 		var	id = $(this).data('userid')
-
 		$.ajax({
 			method: "POST", 
 			url: 'actions.php?action=following',
@@ -142,12 +142,23 @@
 			success: function(result){
 
 				if(result == '1'){
-					
+
 					$("button[data-userid='"+id+"' ]").html('follow')
-					
-				} else {
-					
-					$("button[data-userid='"+id+"' ]").html('unfollow')
+					location.reload();
+
+				}
+//					else if (result == '3') {
+//					$("button[data-userid='"+id+"']").html('xxxx');
+//					location.reload();
+//
+//
+//				} 
+
+				else {
+
+					$("button[data-userid='"+id+"' ]").html('unfollow');
+					location.reload();
+
 				}
 
 			}

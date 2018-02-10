@@ -60,8 +60,8 @@ function displayHeader(){
 
 		$row = mysqli_fetch_assoc(mysqli_query( $link , $query));
 
-		
-		echo  '<span style="color: #000">'.$row['email']. '</span>	<a class="btn btn-outline-danger my-2 my-sm-0" href="?page=logout">logout</a>';
+
+		echo  '<span style="color: #000">'.$row['email'].' ' . $_SESSION['id'] . '</span>	<a class="btn btn-outline-danger my-2 my-sm-0" href="?page=logout">logout</a>';
 	} else { 
 		echo '
 					<input type="button" class="btn btn-success" value="Login/Signup" data-toggle="modal" data-target="#exampleModal">' ;
@@ -93,6 +93,7 @@ function displayTweets($type){
 	while($row = mysqli_fetch_assoc( $tweetResult )){
 
 
+
 		$user = "SELECT * FROM users WHERE id = '".$row['userid']."' " ;
 		$userResult = mysqli_query( $link , $user);
 		$userRow = mysqli_fetch_assoc($userResult);
@@ -105,35 +106,56 @@ function displayTweets($type){
 		echo '
 
 			<div class=" p-2 m-1" style="border:1px solid #ccc">'
-			
+
 			//Display user Email
 			.$userRow['email'].
 
 			//Display Time
-			'  &#8226  <span class="text-muted">'. time_since(time() -  strtotime($row['datetime']) ) .'</span><p>'
+			'  &#8226  <span class="text-muted">'
+			. time_since(time() -  strtotime($row['datetime']) ) .
+			'</span><p>'
 
 			//TWeet Content
-			.$row['tweet'].
-
-			//Follow Button
-			'</p> <button class="my-0 btn btn-sm btn-outline-info followBtn" data-userid="'.$row['userid'].'">' ;
-
-		
-		$_SESSION['id'] = (isset($_SESSION['id'])) ? $_SESSION['id'] : '';
-		$followingQuery = "SELECT * FROM following WHERE follower = '".$_SESSION['id']."' AND isFollowing = '".$row['userid']."' " ;
-		$followingResult = mysqli_query($link , $followingQuery);
-		$followingRow = mysqli_fetch_assoc($followingResult);
-
-		if(mysqli_num_rows($followingResult) > 0) {
-
-			echo 'unfollow';
-		} else {
-			echo'follow';
-		}
+			.$row['tweet'].' ';
 
 
-		echo '</button>
-			</div>	';
+		//will display the follow button if there is active or logged in user
+		//		if(isset($_SESSION['id'])){ 
+		//Follow Button
+
+
+		//check if there is user to display the unfollow or follow button value
+		if(isset($_SESSION['id'])){
+
+			echo	'</p>  '  ;
+
+
+
+
+			//		$_SESSION['id'] = (isset($_SESSION['id'])) ? $_SESSION['id'] : '';
+			$followingQuery = "SELECT * FROM following WHERE follower = '".$_SESSION['id']."' AND isFollowing = '".$row['userid']."' " ;
+			$followingResult = mysqli_query($link , $followingQuery);
+			$followingRow = mysqli_fetch_assoc($followingResult);
+
+
+			if(mysqli_num_rows($followingResult) > 0) {
+
+				//Sets value for me if the current user is the session id
+				if( $_SESSION['id'] == $row['userid'] ){
+					echo '<span class="text-warning"> Your Tweet </span>';
+				} else {
+					echo ' <button data-userid="'.$row['userid'].'"  class="my-0 btn btn-sm btn-outline-info followBtn "> unfollow ';
+				}
+
+			} else {
+				echo '<button data-userid="'.$row['userid'].'"  class="my-0 btn btn-sm btn-outline-info followBtn "> follow';
+			}
+
+			//set follow for default button value. e.g no logged in user.
+		}  
+
+		echo 
+			'</button></div>	';
 	}
 
 

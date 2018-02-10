@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	</head>
+	<body>
+
+		<ul id="peoplex"></ul>
+
+		<script type="text/javascript">
+			//	var person = {
+			//		
+			//		name: "Brad",
+			//		age: 35,
+			//		email: function(){
+			//			return 'sam@gmail.com'
+			//			
+			//		},
+			//		address: {
+			//			street:"123 elmo st.",
+			//			city: "ulma"
+			//		},
+			//		children:['pak' , 'ganern']
+			//	}
+			//	
+			//	
+			//	var people = [
+			//		
+			//	]
+			//	
+			//	
+			////	person = JSON.stringify(person)
+			//	console.log(people[1].name);
+			//	
+			//	for(i=0;i < people.length ; i++){
+			//		console.log(people[i].name)
+			//	}
+			//	
+				var peoplex = document.getElementById('peoplex')
+			//	
+
+			//	}
+			//	
+
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					// Action to be performed when the document is read;
+					var response = JSON.parse(xhttp.responseText);
+					var people		= response.people;
+//					var peoplex = '';
+					for(i=0 ; i < people.length ; i++){
+
+						peoplex.innerHTML += '<li>'+people[i].name+'</li>'
+
+					}
+				}
+			}
+			xhttp.open("GET", "people.json", true);
+			xhttp.send();
+
+
+		</script>	
+	</body>
+
+</html>

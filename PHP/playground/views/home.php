@@ -7,7 +7,7 @@
 
 			<?php displayTweetBox() ?>
 			<?php } ?>
-			<?php displayTweets('home') ?>
+			<?php  displayTweets('home') ?>
 
 		</div>
 

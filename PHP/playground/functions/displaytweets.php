@@ -4,23 +4,83 @@
 
 function displayTweets($type){
 	global $link;
-	
+
+
 
 	$whereClause = '';
+
+
 
 	if( $type == 'home' ) {
 
 		$whereClause = '';
 	}
 
-	//
-	//	$user = "SELECT * FROM users ".whereClause." " ;
-	//	$userResult = mysqli_query( $link , $user);
-	//	$userRow = mysqli_fetch_assoc($userResult);
-	//
+
+	/*PAUSE MUNA UNG TIMELINE IAAOUTPUT UNG MGA NAFOLLOW MONA*/
 
 
-	$tweetQuery = "SELECT * FROM tweets ".$whereClause." ORDER BY `datetime` DESC LIMIT 5 ";
+	if( $type == 'timeline'){
+
+		if(isset($_SESSION['id'])){
+			// Check only if our user is the current user
+			//check the isFollowing table for the id's  users that our users is following 
+			$query = "SELECT * FROM following WHERE follower='".mysqli_real_escape_string($link, $_SESSION['id'])."' ";
+
+			$result = mysqli_query($link,$query);
+
+			$whereClause = '';
+
+			while ( $row = mysqli_fetch_assoc($result)){
+
+
+				if( $whereClause == '') $whereClause = " WHERE";
+				else { $whereClause .= " OR"; }
+
+				$whereClause .=" userid=" .$row['isFollowing'];
+				//			WHERE userid= $row['isFollowing']
+			}
+		} else {
+			//			$_SESSION['id'] = '';
+			$whereClause = '';
+		}
+	}
+
+	//Displaying my own tweets
+	if($type == 'mytweets') {
+		$whereClause = '';
+		if(isset($_SESSION['id'])){
+			
+			$myTweetsQuery = "SELECT * FROM tweets WHERE userid='".$_SESSION['id']."' ";
+			$myTweetsResult = mysqli_query( $link , $myTweetsQuery);
+			
+			$row = mysqli_fetch_assoc($myTweetsResult);
+			
+			$whereClause = " WHERE userid = ".$row['userid']." ";
+
+		}
+	}
+	
+	//Display the user profile form public profiles
+	if( is_numeric($type) > 0 ){
+		
+		
+		$query = "SELECT * FROM users WHERE id=".$type." ";
+		$row = mysqli_fetch_assoc(mysqli_query($link , $query));
+		
+		$whereClause = " WHERE userid=".$row['id']." ";
+	}
+
+	
+	if($type == 'search'){
+ $whereClause = "WHERE tweet LIKE '%".mysqli_real_escape_string($link, $_GET['q'])."%' " ;
+		
+								
+	}
+
+
+
+	echo $tweetQuery = "SELECT * FROM tweets ".$whereClause." ORDER BY `datetime` DESC LIMIT 10 ";
 
 	$tweetResult = mysqli_query( $link , $tweetQuery);
 
@@ -73,7 +133,7 @@ function displayTweets($type){
 				if( $_SESSION['id'] == $row['userid'] ){
 					echo '</p> <span class="text-warning"> Your Tweet </span>';
 				} else {
-					echo ' </p> <button data-userid="'.$row['userid'].'"  class="my-0 btn btn-sm btn-outline-info followBtn "> unfollow ';
+					echo ' </p> <button  data-userid="'.$row['userid'].'"  class="my-0 btn btn-sm btn-outline-info followBtn "> unfollow ';
 				}
 
 			} else {

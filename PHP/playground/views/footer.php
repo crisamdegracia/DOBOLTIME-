@@ -4,6 +4,7 @@
 	</div>
 </footer>
 
+
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
@@ -47,7 +48,165 @@
 	</div>
 </div>
 
-<script type="text/javascript" src="./js/main.js"></script>
 
+<script type="text/javascript">
+
+	var email 			= $('#email'),
+			password		= $('#password'),
+			loginBtn		= $('#loginBtn'),
+			err					= '',
+			alertMsg		= $('#alertMsg'),
+			toggleLogin = $('#toggleLogin'),
+			loginActive	= $('#loginActive'),
+			loginBtn		= $('#loginBtn'),
+			modalTitle	= $('#modalTitle'),
+			tweetPostButton = $('#tweetPostButton'),
+			postAlert		= $('.postAlert'),
+			followBtn		= $('.followBtn');
+
+	alertMsg.hide();
+
+	/*TOGGLES LOGIN BUTTONS */
+	toggleLogin.click(function(){
+
+		if(loginActive.val() == '1'){
+			modalTitle.html('Sign up!');
+			toggleLogin.html('Login');
+			loginBtn.html('Signup');
+			loginActive.val('0');
+		} else {
+			modalTitle.html('Log in!')
+			toggleLogin.html('Signup')
+			loginBtn.html('Login')
+			loginActive.val('1')
+		}
+	})
+
+
+	/*CHECK THE MODAL INPUT FIELD IF EMPTY THEN SEND AJAX*/
+	loginBtn.click(function(e){
+
+		$.ajax({
+			method: "POST",
+			url: "actions.php?action=login",
+			data: "email=" + email.val() + "&password=" + password.val() + "&login=" + loginActive.val(),
+			success: function(result){
+		
+				if( result == 1 ){
+					
+					window.location.assign('/playground');
+					
+					
+				} else {
+					alertMsg.html(result).show();
+					setInterval(function(){
+						location.reload();
+					}, 1800)
+				}
+
+			}
+
+		})
+	})
+
+	//POSTING A TWEET
+	tweetPostButton.click(function(e){
+
+		$.ajax({
+			method: "POST",
+			url: "actions.php?action=tweetpost",
+			data: "tweet=" + $('#tweetPost').val(),
+			success: function(result){
+				if(result == '1') {
+					postAlert.removeClass('alert alert-danger');
+					postAlert.html('Tweet Successfully added!').addClass('alert alert-success').show();
+					location.reload();
+
+				} else {
+					postAlert.removeClass('alert alert-success');
+					postAlert.html(result).addClass('alert alert-danger').show();
+				}
+			}
+
+		})
+	})
+
+	//FOLLOWING AND UNFOLLOWING
+
+	followBtn.click(function(e){
+
+		/*follow button id*/
+		var	id = $(this).data('userid')
+		$.ajax({
+			method: "POST", 
+			url: 'actions.php?action=following',
+			data: 'followerid=' + id ,
+			success: function(result){
+				if(result == '1'){
+
+					$("button[data-userid='"+id+"' ]").html('<img src="./assets/page-loader.gif" style="width:16px;height:16px">');
+					location.reload();
+
+				}
+				//					else if (result == '3') {
+				//					$("button[data-userid='"+id+"']").html('xxxx');
+				//					location.reload();
+				//
+				//
+				//				} 
+
+				else {
+					$("button[data-userid='"+id+"' ]").html('<img src="./assets/page-loader.gif" style="width:16px;height:16px">');
+					location.reload();
+
+				}
+
+			}
+		})
+
+
+	})
+
+
+	/*LOAD MORE*/
+	$('#loadMoreBtn').click(function(e){
+		var postLimit = 3;
+
+
+		$.ajax({
+			method: "POST",
+			url: "functions.php?action=loadmore",
+			data: 'postLimit=' + postLimit,
+			success:function(result){
+				alert(result);
+				if(result == '1'){
+					location.reload();
+				}
+			}
+		})
+	})
+
+	
+
+//	$('#searchBtn').click(function(e){
+//		var searchInput = $('#searchInput');
+//		alert(searchInput.val())
+//		
+//		$.ajax({
+//			method: "GET",
+//			url: "functions.php?page=search",
+//			data: "search=" + searchInput.val(),
+//			success: (function(result){
+//				
+//				alert(result);
+//			})
+//			
+//		})	
+//	})
+	
+	
+
+
+</script>
 </body>
 </html>

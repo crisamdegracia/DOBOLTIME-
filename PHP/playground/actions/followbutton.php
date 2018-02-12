@@ -3,7 +3,7 @@
 
 
 if(array_key_exists('action' , $_GET) && $_GET['action'] == 'following') {
-
+	
 	$user 				= mysqli_real_escape_string($link, $_SESSION['id']);
 	$userFollower = mysqli_real_escape_string($link, $_POST['followerid']);
 

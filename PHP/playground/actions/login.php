@@ -31,9 +31,11 @@ if(array_key_exists('action' , $_GET) && $_GET['action'] == 'login'){
 			if( mysqli_num_rows($result) > 0 && password_verify($password , $row['password'] ) ){
 
 				$_SESSION['id'] = $row['id'];
-				echo '1';
+				echo 1;
+			
 
 			} else {
+
 				echo 'Email or password is incorrect';
 			} 
 		}

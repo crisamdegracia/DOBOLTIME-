@@ -2,14 +2,13 @@
 
 
 
-function displayTweets($type){
+function displayTweets($type, $limit){
 	global $link;
-
-
+	
+	
 
 	$whereClause = '';
-
-
+	
 
 	if( $type == 'home' ) {
 
@@ -61,6 +60,7 @@ function displayTweets($type){
 		}
 	}
 	
+	
 	//Display the user profile form public profiles
 	if( is_numeric($type) > 0 ){
 		
@@ -77,10 +77,10 @@ function displayTweets($type){
 		
 								
 	}
-
-
-
-	echo $tweetQuery = "SELECT * FROM tweets ".$whereClause." ORDER BY `datetime` DESC LIMIT 10 ";
+	
+	
+//	$limit = ($limit == '') ? $limit : 3 ;
+	 $tweetQuery = "SELECT * FROM tweets ".$whereClause." ORDER BY `datetime` DESC LIMIT ".$limit." ";
 
 	$tweetResult = mysqli_query( $link , $tweetQuery);
 
@@ -99,7 +99,7 @@ function displayTweets($type){
 
 		echo '
 
-			<div class=" p-2 m-1" style="border:1px solid #ccc">'
+			<div  class="p-2 m-1 postContent" style="border:1px solid #ccc">'
 
 			//Display user Email
 			.$userRow['email'].
@@ -141,15 +141,20 @@ function displayTweets($type){
 			}
 
 			//set follow for default button value. e.g no logged in user.
-		}  
+		} /*UNFOLLOW AND FOLLOW BUTTON*/ 
 
 		echo 
 			'</button></div>	';
-	}
-	echo '<a id="loadMoreBtn" class="btn btn-warning">load more</a>';
-
+	} /*end of while */
+			
+	echo '<form><input type="hidden" name="loadmore" value="'.$limit.'">
+	<button class="btn btn-danger" id="btn-more">more</button></form>';
+	
 
 }
+
+
+
 
 
 

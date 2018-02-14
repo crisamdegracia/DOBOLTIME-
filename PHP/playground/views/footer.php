@@ -62,7 +62,8 @@
 			modalTitle	= $('#modalTitle'),
 			tweetPostButton = $('#tweetPostButton'),
 			postAlert		= $('.postAlert'),
-			followBtn		= $('.followBtn');
+			followBtn		= $('.followBtn'),
+			postContentSize = $('.postContent').length;
 
 	alertMsg.hide();
 
@@ -169,22 +170,22 @@
 
 
 	/*LOAD MORE*/
-	$('#loadMoreBtn').click(function(e){
-		var postLimit = 3;
-
-
-		$.ajax({
-			method: "POST",
-			url: "functions.php?action=loadmore",
-			data: 'postLimit=' + postLimit,
-			success:function(result){
-				alert(result);
-				if(result == '1'){
-					location.reload();
-				}
-			}
-		})
-	})
+	
+	
+//	$('#btn-more').click(function(e){
+//		
+//		var lastContentId = $(this).data('val');
+//	
+//		$.ajax({
+//			method: "POST",
+//			url: "actions.php?page=loadmore",
+//			data: "postLimit=" + postContentSize , 
+//			success: function(result){
+//			alert(result);
+//				
+//			}
+//		})
+//	})
 
 	
 

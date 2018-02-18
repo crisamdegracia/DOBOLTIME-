@@ -7,8 +7,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1"> 
 		<meta name="description" content="">
 		<meta name="author" content="">
-		<link rel="icon" href="/b2w_feb15/assets/img/favicon.ico">
-		<link rel="stylesheet" href="/b2w_feb15/assets/font-awesome/css/font-awesome.min.css">
 		<title>DBootstrap to Wordpress</title>
 
 		<!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -16,9 +14,12 @@
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![ednif]-->
 
+		<link rel="icon" href="/b2w_feb15/assets/img/favicon.ico">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="/b2w_feb15/assets/styles/style.css">
+		<link rel="stylesheet" href="./font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="./styles/style.css">
+		<link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
 	</head>
 	<body>
 

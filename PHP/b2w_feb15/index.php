@@ -1,20 +1,18 @@
 <?php include('views/header.php') ?>
 
 
-
-
 <!--HERO-->
 <section  id="hero" data-type="background" data-speed="20">
 
 	<article>
-		<div class="container clearfix">
+		<div class="container-fluid">
 			<div class="row">
 
-				<div class="col-sm-5 col-5 col-md-5">
-					<img src="./assets/img/logo-badge.png" class="logo" alt="">
+				<div class="col-sm-4  col-md-6">
+					<img class="img-fluid" src="./assets/img/logo-badge.png" class="logo" alt="">
 				</div>
 
-				<div class="col-sm-7 col-7 col-md-7  hero-text">
+				<div class=" col-sm-8  col-md-6  hero-text">
 					<h3>Bootstrap to Wordpress</h3>
 					<small class="lead">Earn An Extra $1k  - $5k a Month by Learning to Code Your Very Own Responsive &amp; Custom Worpdress Websites with Bootstrap</small>
 					<div id="price-timeline">
@@ -123,7 +121,7 @@
 		</div>
 
 		<div class="row">
-			<div class="col-sm-8 offset-sm-2">
+			<div class="col-sm-10 offset-sm-1">
 
 				<h3>Grabphic &amp; Web Developer</h3>
 				<p>Nescius fugiat magna iis ipsum non cupidatat eu veniam id incurreret elit sunt 
@@ -135,7 +133,10 @@
 					arbitror, summis possumus de pariatur, proident ea malis litteris est possumus 
 					quis tempor cupidatat si mentitum est tempor se varias probant laboris.</p>
 			</div><!--col-->
-			<div class="col-sm-8 offset-sm-2">
+		</div>
+		<div class="row">
+			
+			<div class="col-sm-10 offset-sm-1">
 
 				<h3>Entreprenuer</h3>
 				<p>Nescius fugiat magna iis ipsum non cupidatat eu veniam id incurreret elit sunt 
@@ -147,8 +148,10 @@
 					arbitror, summis possumus de pariatur, proident ea malis litteris est possumus 
 					quis tempor cupidatat si mentitum est tempor se varias probant laboris.</p>
 			</div><!--col-->
-
-			<div class="col-sm-8 offset-sm-2">
+		</div><!--row-->
+			<div class="row">
+				
+			<div class="col-sm-10 offset-sm-1">
 
 				<h3>Employees</h3>
 				<p>Nescius fugiat magna iis ipsum non cupidatat eu veniam id incurreret elit sunt 
@@ -160,8 +163,11 @@
 					arbitror, summis possumus de pariatur, proident ea malis litteris est possumus 
 					quis tempor cupidatat si mentitum est tempor se varias probant laboris.</p>
 			</div><!--col-->
-
-			<div class="col-sm-8 offset-sm-2">
+			</div><!--row-->
+			
+			<div class="row">
+				
+			<div class="col-sm-10 offset-sm-1">
 
 				<h3>People Who are Looking for a new Career</h3>
 				<p>Nescius fugiat magna iis ipsum non cupidatat eu veniam id incurreret elit sunt 
@@ -183,7 +189,7 @@
 
 <!--COURSE FEATURES-->
 <section id="course-features">
-	<div class="container text-center py-4 ">
+	<div class="container text-center py-5 ">
 
 		<div class="section-header">
 			<img src="assets/img/icon-rocket.png" alt="">
@@ -232,26 +238,26 @@
 			probant enim fabulas ita ab ipsum admodum possumus. Ipsum quibusdam si multos 
 			anim, incurreret nam minim nostrud, se cillum eram sint ingeniis ita velit 
 			incurreret ea minim </p>
-			<div class="row">
-				
-				<div class="col-sm-4">
-					<img src="assets/img/icon-design.png" alt="">
-					<h3>Sexy &amp; Modern Design</h3>
-					<p>You get to work with a modern, profesional quality design &amp; layout.</p>
-				</div>
-				
-				<div class="col-sm-4">
-					<img src="assets/img/icon-code.png" alt="">
-					<h3>Quality HTML 5 &amp; CSS 3</h3>
-					<p>You'll learn how hand-craft a stunning website with valid semantic and beautiful HTML 5 &amp; CSS 3</p>
-				</div>
-				
-				<div class="col-sm-4">
-					<img src="assets/img/icon-cms.png" alt="">
-					<h3>Easy-to-use CMS </h3>
-					<p>Allow your clients to easily update their websites by converting your static to dynamic websites using <em> Wordpress</em></p>
-				</div>
+		<div class="row">
+
+			<div class="col-sm-4">
+				<img src="assets/img/icon-design.png" alt="">
+				<h3>Sexy &amp; Modern Design</h3>
+				<p>You get to work with a modern, profesional quality design &amp; layout.</p>
 			</div>
+
+			<div class="col-sm-4">
+				<img src="assets/img/icon-code.png" alt="">
+				<h3>Quality HTML 5 &amp; CSS 3</h3>
+				<p>You'll learn how hand-craft a stunning website with valid semantic and beautiful HTML 5 &amp; CSS 3</p>
+			</div>
+
+			<div class="col-sm-4">
+				<img src="assets/img/icon-cms.png" alt="">
+				<h3>Easy-to-use CMS </h3>
+				<p>Allow your clients to easily update their websites by converting your static to dynamic websites using <em> Wordpress</em></p>
+			</div>
+		</div>
 	</div>
 
 </section>
@@ -261,30 +267,146 @@
 
 <!--VIDEO FEATURETTE -->
 <section id="featurette">
-<div class="container">
-	<div class="row">
-		<div class="col-sm-8 offset-2">
-			<h2>Watch The Course Intro</h2>
-			<div class="embed-responsive embed-responsive-16by9">
-				
-			<iframe width="100%" height="315" src="//www.youtube.com/embed/q-mJJsnOHew" frameborder="0" allowfullscreen></iframe>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8 offset-2">
+				<h2>Watch The Course Intro</h2>
+				<div class="embed-responsive embed-responsive-16by9">
+
+					<!--					<iframe width="100%" height="315" src="//www.youtube.com/embed/q-mJJsnOHew" frameborder="0" allowfullscreen></iframe>-->
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
 </section>
 
 
 <!--INSTRUCTOR-->
-<section>
+<section id="instructor">
+	<div class="container py-5">
+		<div class="row">
+			<div class="instructor-content col-12 col-sm-8 col-md-8 col-lg-8 ">
+				<div class="row" >
+					<!--style="border: 1px solid red"-->
+					<div class="col-6 col-sm-5 col-md-5 col-lg-4 col-xl-5 mx-0 px-0 ">
+						<h4 id="intructor-title"> Your Instructor<small> Brad Hussey</small>
+						</h4>
+					</div>
 
+					<!--
+<div class="col-6 col-sm-8 col-md-4 col-lg-4 col-xl-3 mx-0 px-0" style="border: 1px solid blue">
+</div>
+-->
+					<div class="col-6 col-sm-7 col-md-7 col-lg-4 col-xl-3 px-0 mx-0 ">
+						<a href="https://twitter.com" class="badge social twitter"> <i class="fa fa-twitter"></i> </a>
+						<a href="https://facebook.com" class="badge social facebook"><i class="fa fa-facebook"></i></a>
+						<a href="https://github.com" class="badge social github"><i class="fa fa-github"></i></a>
+					</div><!--col-lg-4-->
+				</div><!--2nd row-->
+				<p class="lead">Dolor iis quibusdam aut aute. Se multos tamen fore senserit, mentitum labore.</p>
+				<p class="lead">Dolor iis quibusdam aut aute. Se multos tamen fore senserit, mentitum labore.</p>
+				<p class="lead">Dolor iis quibusdam aut aute. Se multos tamen fore senserit, mentitum labore.</p>
+				<p class="lead">Dolor iis quibusdam aut aute. Se multos tamen fore senserit, mentitum labore.</p>
+				<hr>
+				<h4>The Numbers <small>They Dont't Lie</small></h4>
+				<div class="row">
+					<div class="col-4">
 
+						<div class="num">
+							<div class="num-content">
+								41,000+ <span>students</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="num">
+
+							<div class="num-content">
+								568 <span>reviews</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-4">
+						<div class="num">
+
+							<div class="num-content">
+								8 <span>courses</span>
+							</div>
+						</div>
+					</div>
+					<!--				</div>-->
+					<!--			</div>-->
+				</div><!--row-->
+			</div><!--first lg-8-->
+
+		</div><!--first row-->
+	</div><!--container-->
 </section>
 
 
 <!--TESTIMONIAL-->
-<section>
+<section id="kudos">
+	<div class="container py-5 text-center">
+		<div class="row">
+			<div class="col-sm-8 offset-sm-2">
+				<h2>What people are saying about Brad</h2>
 
+				<div class="row testimonials my-2">
+					<div class="col-md-10">
+						<img src="./assets/img/aj.png" alt="">
+
+						<p class="blockquote">Lorem mandaremus eruditionem ne anim id deserunt non multos, sed anim incurreret 
+							praesentibus, aut amet senserit. Anim voluptate sed praesentibus. Quorum an 
+							consequat ab aute est elit consequat ita praesentibus, singulis sunt aute id 
+							quae, ea o dolore occaecat, eiusmod malis legam cu</p>
+						<cite>&mdash; Amet qui occaecat ad nulla eu tempor illum anim appellat ipsum ea sed quibusdam 
+							eu consequat</cite>
+					</div>
+				</div>
+				<div class="row testimonials my-2">
+					<div class="col-md-10">
+						<img src="./assets/img/ben.png" alt="">
+
+						<p class="blockquote">Lorem mandaremus eruditionem ne anim id deserunt non multos, sed anim incurreret 
+							praesentibus, aut amet senserit. Anim voluptate sed praesentibus. Quorum an 
+							consequat ab aute est elit consequat ita praesentibus, singulis sunt aute id 
+							quae, ea o dolore occaecat, eiusmod malis legam cu</p>
+						<cite>&mdash; Amet qui occaecat ad nulla eu tempor illum anim appellat ipsum ea sed quibusdam 
+							eu consequat</cite>
+					</div>
+				</div>
+				<div class="row testimonials my-2">
+<div class="col-md-10">
+						<img src="./assets/img/brennan.jpg" class="rounded-circle" alt="">
+					
+						<p class="blockquote">Lorem mandaremus eruditionem ne anim id deserunt non multos, sed anim incurreret 
+							praesentibus, aut amet senserit. Anim voluptate sed praesentibus. Quorum an 
+							consequat ab aute est elit consequat ita praesentibus, singulis sunt aute id 
+							quae, ea o dolore occaecat, eiusmod malis legam cu</p>
+						<cite>&mdash; Amet qui occaecat ad nulla eu tempor illum anim appellat ipsum ea sed quibusdam 
+							eu consequat</cite>
+					</div>
+				</div>
+				<div class="row testimonials my-2">
+			<div class="col-md-10">
+
+						<img src="./assets/img/ernest.png" alt="">
+				
+						<p class="blockquote">Lorem mandaremus eruditionem ne anim id deserunt non multos, sed anim incurreret 
+							praesentibus, aut amet senserit. Anim voluptate sed praesentibus. Quorum an 
+							consequat ab aute est elit consequat ita praesentibus, singulis sunt aute id 
+							quae, ea o dolore occaecat, eiusmod malis legam cu</p>
+						<cite>&mdash; Amet qui occaecat ad nulla eu tempor illum anim appellat ipsum ea sed quibusdam 
+							eu consequat</cite>
+					</div>
+				</div>
+
+
+			</div><!--col-8-->
+		</div><!--row-->
+
+	</div><!--container-->
 </section>
 
 

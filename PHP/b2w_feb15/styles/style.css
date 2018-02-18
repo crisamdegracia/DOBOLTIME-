@@ -9,11 +9,21 @@ body {
 	margin-top: 100px;
 	font-family: 'Raleway' , Helvetica, sans-serif;
 	font-size: 16px;
+	color: red;
 	background: url('../img/tile.jpg') top left repeat;
+	line-height: 1.1;
+	font-size: 1em;
+
 }
 
 /*==== GLOBAL ======*/
+div,
+p {
+	line-height: 1.1;
+	font-size: 1em;
 
+
+}
 h1,h2,h3,h4,h5,h6 {
 	-webkit-font-smoothing:antialiased;
 	text-rendering: optimizeLegibility;
@@ -44,6 +54,33 @@ h4 {
 }
 
 
+.modal-content {
+	background:url('../assets/img/tile.jpg') top left repeat;
+}
+
+.badge.social {
+	background: #ccc;
+	font-size: 24px;
+	height: 40px;
+	width: 40px;
+	text-align: center;
+	line-height: 42px;
+	margin: 0 5px 20px 0;
+	padding: 0;
+	border-radius: 50px;
+	color: white;
+}
+
+
+.badge.social.twitter:hover {
+	background: #55acee;
+}
+.badge.social.facebook:hover {
+	background: #3b5998;
+}
+.badge.social.github:hover {
+	background: #333;
+}
 /*======= PARALAX ========*/
 {
 	/* The image used */
@@ -60,10 +97,10 @@ h4 {
 
 /*====SECTION=============*/
 #hero {
-	background: url('../img/hero-bg.jpg') 50% 0 no-repeat fixed ;
+	background: url('../assets/img/hero-bg.jpg') 50% 0 no-repeat fixed ;
 	/*	background-position: center;*/
-	min-height: 500px;
-	height: 500px;
+/*	min-height: 500px;*/
+/*	height: 500px;*/
 	padding: 40px 0;
 	color: white;
 	-webkit-font-smoothing:antialiased;
@@ -144,7 +181,7 @@ h4 {
 
 
 #boost-income {
-	background: #aa1;
+	background: #ccc;
 	color: #111;
 }
 
@@ -153,14 +190,72 @@ h4 {
 	color: white;
 	text-align: center;
 }
+
 #who-benefits {
-	background: #2cc;
+	background: #eee;
 }
 
 #featurette {
-	background-color: azure;
+	background: url('../assets/img/stuff-bg.jpg') 50% 100% repeat fixed;
+	-webkit-background-size: cover;
+	background-size: cover;
+	text-align: center;
+	color: white;
+	padding: 30px 10px;
 }
 
+
+#instructor {
+	background: url('../assets/img/brad-elvis.png') 90% 0 no-repeat;
+}
+#instructor .num {
+	display: table;
+	font-size: 30px;
+	font-weight: bold;
+	background: #dd5638;
+	height: 120px;
+	width: 120px;
+	color: white;
+	text-align: center;
+	border-radius: 100%;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+#instructor .num .num-content {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+#instructor .num span {
+	display: block;
+	font-size: 20px;
+	font-weight: normal;
+
+}
+
+#kudos {
+	text-align: center;
+}
+.tesimonials  {
+	margin-bottom: 60px;
+}
+.blockquote {
+	border: 1px sol
+		padding: 0;
+	border: none;
+	font-style: italic;
+	text-align: left;
+}
+.blockquote cite {
+	display: block;
+	color: #777;
+	margin: 15px 0 0 0;
+}
+
+.blockquote:before {
+	display: none;
+}
 
 
 /*SPRITES*/
@@ -169,7 +264,7 @@ i.ci {
 	display: inline-block;
 	height: 40px;
 	width: 40px;
-	background: url('../img/icon-sprite.png') no-repeat;
+	background: url('../assets/img/icon-sprite.png') no-repeat;
 }
 .ci.ci-computer { background-position: 0 0;}
 .ci.ci-watch { background-position: -40px 0;}
@@ -189,59 +284,79 @@ i.ci {
 
 
 
+/*MEDIA QUERIES*/
 
+@media screen and (max-width: 1080px) and (min-width: 260px) {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- {
-	
+	.instructor-content {
+		background: rgba(0,0,2, 0.3);
+		color: white;
+		font-weight: 800;
+	}
+	#intructor-title {
+		color: yellow;
+		font-size: 20px;
+	}
 }
+
+@media screen and (max-width: 720px) and (min-width: 260px) {
+
+	#instructor .num {
+		height: 100px;
+		width: 100px;
+		font-size: 16px;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

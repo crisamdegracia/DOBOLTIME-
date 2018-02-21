@@ -30,21 +30,21 @@
 				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-				<a class="navbar-brand" href="/"> <img src="./assets/img/logo.png" alt=""> </a>
+				<a class="navbar-brand" href="index.php"> <img src="./assets/img/logo.png" alt=""> </a>
 
 
 				<div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
 					<ul class="nav navbar-nav ">
 						<li class="nav-item active">
-							<a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="blog.html">Blog</a>
+							<a class="nav-link" href="blog.php">Blog</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="resources.html">Resources</a>
+							<a class="nav-link" href="resources.php">Resources</a>
 						</li><li class="nav-item">
-						<a class="nav-link" href="contact.html">Contact</a>
+						<a class="nav-link" href="contact.php">Contact</a>
 						</li>
 					</ul>
 					<!--

@@ -1,3 +1,32 @@
+<footer>
+	<div class="container text-center py-5">
+		<div class="row justify-content-center">
+
+			<div class="col-sm-3 ">
+				<p><a href="/"><img src="./assets/img/logo.png" alt="Bootstrap to wordpress"></a></p>
+			</div>
+			<div class="col-sm-6">
+				<nav>
+					<ul class="list-unstyled list-inline">
+						<li class="list-inline-item"><a href="">home</a></li>
+						<li class="list-inline-item"><a href="">blog</a></li>
+						<li class="list-inline-item"><a href="">resources</a></li>
+						<li class="list-inline-item"><a href="">contact</a></li>
+						<li class="signup-link list-inline-item"><a href="">Sign up now</a></li>
+					</ul>
+				</nav>
+			</div>
+
+			<div class="col-sm-3">		
+			<p class="pull-right"> &copy; 2018 Sambeetech</p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+
+
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>

@@ -44,7 +44,7 @@
 
 				success:function(data)  
 				{
-					if(data != '')  
+					if(data != '')
 					{  
 						$('#remove_row').remove();  
 						$('#load_data_table').append(data);  

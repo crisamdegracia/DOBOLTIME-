@@ -28,7 +28,10 @@ if( array_key_exists('page' ,$_GET) == 'timeline' && $_GET['page'] == 'timeline'
 	
 //	$_GET['impakto'] = $_GET['userid'];
 	include('views/publicprofile.php');
-}
+	
+ } 
+
+
 else {
 
 	include('views/home.php');

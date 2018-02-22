@@ -14,6 +14,7 @@
 			</div> 
 
 			<div class="col-md-4 my-5">
+			
 				<?php  displaySearch() ?>
 				<?php displayTweetBox() ?>
 

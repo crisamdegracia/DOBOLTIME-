@@ -71,8 +71,6 @@ if($_GET['action'] == 'loginSignup'){
 
 			if(mysqli_num_rows($result) > 0 ) {
 
-//				echo $_SESSION['id'];
-//				echo "pwede!";
 				$row = mysqli_fetch_array($result);
 
 				if( $row['email'] == $email && password_verify($password, $row['password'])){
@@ -106,7 +104,6 @@ if( $_GET['action'] == 'toggleFollow'){
 	if(mysqli_num_rows($result) > 0 ){
 		$row = mysqli_fetch_assoc($result);
 
-
 		//UNFOLLOW
 		$query = "DELETE FROM isfollowing WHERE id = '".mysqli_real_escape_string($link,$row['id'])."' ";
 		mysqli_query($link,$query);
@@ -119,13 +116,10 @@ if( $_GET['action'] == 'toggleFollow'){
 		if(mysqli_query($link ,  $query)) echo '2';
 
 	}
-
 }
-
 
 //POSTING A TWEET
 if($_GET['action'] == 'postTweet'){
-
 	
 //	print_r($_POST['tweet']);
 	
@@ -135,7 +129,8 @@ if($_GET['action'] == 'postTweet'){
 	else if(strlen($_POST['tweet']) > 200){
 		echo 'max input reached';
 	} else {
-		
+
+
 //	$time = date_default_timezone_set('Asia/Bangkok');
 //		print_r($_POST);
 //		echo date("Y-m-d H:i:s");
@@ -143,9 +138,6 @@ if($_GET['action'] == 'postTweet'){
 	 if (mysqli_query($link, $query )) echo 'success'; 
 		else  echo  'Wrong move '.$_POST['tweet'];
 	}
-
 }
-
-
 
 ?>

@@ -80,9 +80,9 @@ function displayTweets($type){
 
 	} else if ($type == 'publicprofiles'){
 		include('functions/publicprofiles.php');
+	
 	} else if ($type == 'search'){
-		
-		
+			
 		include('functions/search.php');
 
 	} else if( is_numeric($type) ){

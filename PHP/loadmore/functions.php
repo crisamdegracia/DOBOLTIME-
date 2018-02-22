@@ -7,11 +7,10 @@ $connect = mysqli_connect("localhost", "root", "", "testing");
 
 function displayvids(){
 
-
-
 	global $connect;
 
-	$sql = "SELECT * FROM testing LIMIT 2";  
+	$sql = "SELECT * FROM testing LIMIT 2";
+	
 	$result = mysqli_query($connect, $sql);  
 	$video_id = '';  
 
@@ -23,7 +22,7 @@ function displayvids(){
 
 		$video_id = $row["id"];
 	}  
-
+	
 	echo 
 		'
 		<tr id="remove_row">  

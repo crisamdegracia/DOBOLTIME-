@@ -438,14 +438,13 @@ body {
 	font-family: 'Raleway' , Helvetica, sans-serif;
 	font-size: 16px;
 	background: url('./assets/img/tile.jpg') top left repeat;
-	border: 1px solid red !important; 
 	line-height: 1.1;
 	font-size: 1em;
 
 }
 
 nav {
-	margin-top: 20px;
+	margin-top: 25px;
 }
 
 /*==== GLOBAL ======*/

@@ -1,0 +1,11 @@
+feb 14
+
+database name = wordpress
+database user = username
+database password = password
+databasehost = localhost
+table prefix = wp_
+
+Site Title = Bootstrap2Wordpress
+username = Sam
+password - %EBM)JOcvLA3a%zU6!

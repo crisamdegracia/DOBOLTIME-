@@ -40,7 +40,6 @@
 		</div>
 	</div>
 </div>
-
 <script type="text/javascript">
 
 	var toggleLogin = $('#toggleLogin'),
@@ -101,6 +100,7 @@
 			url: 'actions.php?action=toggleFollow',
 			data: "userid=" + $(this).data('userid'),
 			success: function(result){
+				
 				if(result == '1'){
 					$("a[data-userid='" + id + "']").html('follow');
 				} else{
@@ -125,11 +125,9 @@
 			if(result == 'success'){
 				location.reload();
 			}	
-//				alert(result)
 			}
 		})
 		
-//		alert( $('#tweetPost').val())
 	})
 	
 	

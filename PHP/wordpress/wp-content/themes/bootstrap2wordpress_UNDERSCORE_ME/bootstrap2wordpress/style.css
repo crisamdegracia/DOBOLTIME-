@@ -410,7 +410,9 @@ object {
 }
 
 
-
+.page-template-default {
+	margin-top: 30px;
+}
 
 
 
@@ -440,8 +442,10 @@ body {
 	background: url('./assets/img/tile.jpg') top left repeat;
 	line-height: 1.1;
 	font-size: 1em;
+	padding-top: 30px;
 
 }
+
 
 nav {
 	margin-top: 25px;
@@ -509,7 +513,7 @@ p {
 	border-color: #6a9b3d;
 }
 .modal-content {
-	background:url('../assets/img/tile.jpg') top left repeat;
+	background:url('./assets/img/tile.jpg') top left repeat;
 }
 
 .badge.social {
@@ -551,7 +555,7 @@ p {
 
 /*====SECTION=============*/
 #hero {
-	background: url('../assets/img/hero-bg.jpg') 50% 0 no-repeat fixed ;
+	background: url('./assets/img/hero-bg.jpg') 50% 0 no-repeat fixed ;
 	padding: 40px 0;
 	color: white;
 	-webkit-font-smoothing:antialiased;
@@ -626,13 +630,13 @@ p {
 /*	height: 300px;*/
 }
 .feature-image {
-	background: url('../assets/img/stuff-feature.jpg') no-repeat;
+	background: url('./assets/img/stuff-feature.jpg') no-repeat;
 	-webkit-background-size: cover;
 	background-size: cover;
 }
 
 .feature-image-default-alt {
-	background: url('../assets/img/hipster-stuff.jpg') no-repeat;
+	background: url('./assets/img/hipster-stuff.jpg') no-repeat;
 	-webkit-background-size: cover;
 	background-size: cover ;
 }
@@ -668,7 +672,7 @@ p {
 }
 
 #featurette {
-	background: url('../assets/img/stuff-bg.jpg') 50% 100% repeat fixed;
+	background: url('./assets/img/stuff-bg.jpg') 50% 100% repeat fixed;
 	-webkit-background-size: cover;
 	background-size: cover;
 	text-align: center;
@@ -678,7 +682,7 @@ p {
 
 
 #instructor {
-	background: url('../assets/img/brad-elvis.png') 90% 0 no-repeat;
+	background: url('./assets/img/brad-elvis.png') 90% 0 no-repeat;
 }
 #instructor .num {
 	display: table;
@@ -731,7 +735,7 @@ p {
 
 #signup {
 	text-align: center;
-	background: url('../assets/img/hipster-stuff.jpg') center center repeat fixed;
+	background: url('./assets/img/hipster-stuff.jpg') center center repeat fixed;
 	-webkit-background-size: cover;
 	background-size: cover;
 	color: white;
@@ -926,7 +930,7 @@ i.ci {
 	display: inline-block;
 	height: 40px;
 	width: 40px;
-	background: url('../assets/img/icon-sprite.png') no-repeat;
+	background: url('./assets/img/icon-sprite.png') no-repeat;
 }
 .ci.ci-computer { background-position: 0 0;}
 .ci.ci-watch { background-position: -40px 0;}

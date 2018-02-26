@@ -34,11 +34,34 @@ $who_feauture_img  	  = get_field('who_feauture_img');
 $who_section_title    = get_field('who_section_title');
 $who_section_body  	 	= get_field('who_section_body');
 
+/* Course Features section */
+$course_feature_image 		  = get_field('course_feature_image');
+$course_feature_title 	 	  = get_field('course_feature_title');
+$course_feature_body  		  = get_field('course_feature_body');
+
+/*Project Feature section*/
+
+$final_project_title  		  = get_field('final_project_title');
+$final_project_body  		 	  = get_field('final_project_body');
+
+
+
+/* Instructors SECTIOM */
+
+$instructors_title					  = get_field('instructor_title');
+$instructors_name						  = get_field('instructor_name');
+$bio_excerpt 								  = get_field('bio_excerpt');
+$full_bio 									  = get_field('full_bio');
+$twitter_username 					  = get_field('twitter_username');
+$facebook_username  				  = get_field('facebook_username');
+$github_username					    = get_field('github_username');
+$num_students									= get_field('num_of_students');
+$num_reviews									= get_field('num_of_reviews');
+$num_courses									= get_field('num_courses');
+
+
+
 get_header(); ?>
-
-
-
-
 
 
 
@@ -84,9 +107,6 @@ get_header(); ?>
 	</article>
 </section>
 
-
-
-
 <!--OPT IN SECTION-->
 <section id="optin">
 
@@ -104,9 +124,6 @@ get_header(); ?>
 	</div>
 
 </section>
-
-
-
 
 <!--BOOST YOU INCOME SECTION-->
 <section id="boost-income">
@@ -142,94 +159,70 @@ get_header(); ?>
 
 </section>
 
-
-<!--
-
-$who_feauture_img  	  = get_field('who_feauture_img');
-$who_section_title    = get_field('who_section_title');
-$who_section_body  	 	= get_field('who_section_body');
-
--->
-
 <!-- WHO BENEFITS SECTION-->
 <section id="who-benefits">
 	<div class="container text-center pt-5">
 		<div class="section-header">
-		
-		<?php if(  !empty( $who_feauture_img ) ) : ?>
+
+			<?php if(  !empty( $who_feauture_img ) ) : ?>
 			<img src="<?php echo $who_feauture_img['url'] ?>" alt="<?php echo $who_feauture_img['alt']; ?>">
-			
+
 			<?php endif ; ?>
-			
+
 			<h2><?php echo $who_section_title ; ?></h2>
 		</div>
 
-		<div class="row">
-			<div class="col-sm-10 offset-sm-1">
 
-				<h3>Grabphic &amp; Web Developer</h3>
-				<p>Nescius fugiat magna iis ipsum non cupidatat eu veniam id incurreret elit sunt 
-					incididunt labore ne quamquam eram enim a irure. Aliqua mentitum reprehenderit 
-					do eram sed offendit nam deserunt tamen quem doctrina noster do senserit 
-					graviterque ab arbitror hic hic vidisse imitarentur iis occaecat hic aute te 
-					expetendis eruditionem iis voluptate nam culpa probant de efflorescere. Fabulas 
-
-					arbitror, summis possumus de pariatur, proident ea malis litteris est possumus 
-					quis tempor cupidatat si mentitum est tempor se varias probant laboris.</p>
-			</div><!--col-->
-		</div>
 		<div class="row">
 
 			<div class="col-sm-10 offset-sm-1">
-		
+
 				<?php echo $who_section_body ; ?>
-					
+
 			</div><!--col-->
 
 		</div><!--row-->
 	</div><!--container-->
 </section>
 
-
-
-
 <!--COURSE FEATURES-->
 <section id="course-features">
 	<div class="container text-center py-5 ">
 
 		<div class="section-header">
-			<img src="<?php bloginfo('template_directory') ?>/assets/img/icon-rocket.png" alt="">
-			<h2>Course Features</h2>
+
+			<?php if ( !empty( $course_feature_image ) ) : ?>
+			<img src="<?php echo $course_feature_image['url'] ?>" alt="<?php echo course_feature_image['alt'] ?>">			
+			<?php endif ; ?>
+
+
+			<h2><?php echo $course_feature_title ?> </h2>
+
+
+			<!--If the user input a body text-->
+			<?php if ( !empty( $course_feature_body ) ) : ?>
+			<p class="lead">
+				<?php echo $course_feature_body ?>
+			</p>
+			<?php endif; ?>
 		</div>
 
 
 		<div class="row justify-content-center py-4">
-			<div class="col-sm-2">
-				<i class="ci ci-computer"></i>
-				<h4>Lifetime access to 88+ lectures</h4>
-			</div>
+
+			<?php $loop = new WP_Query( array( 'post_type' => 'course_feature', 'orderby' => 'post_id' , 'order' => 'ASC' ) ); ?>
+
+			<?php while( $loop -> have_posts()  ) : $loop -> the_post(); ?>
+
 
 			<div class="col-sm-2">
-				<i class="ci ci-watch"></i>
-				<h4>10+ Hours of HD Video Content</h4>
+				<i class="<?php the_field('course_features_icon') ?>"></i>
+				<h4><?php echo the_title() ; ?></h4>
 			</div>
+			<?php endwhile ;?>
 
-			<div class="col-sm-2">
-				<i class="ci ci-community"></i>
-				<h4>Access to a community of like-minded students</h4>
-			</div>
-
-			<div class="col-sm-2">
-				<i class="ci ci-instructor"></i>
-				<h4>Direct access to the instructor</h4>
-			</div>
-
-			<div class="col-sm-2">
-				<i class="ci ci-device"></i>
-				<h4>Accessible content on your mobile devices</h4>
-			</div>
-		</div>
-	</div>
+		</div><!--row-->
+	</div><!--container-->
 
 </section>
 
@@ -239,36 +232,37 @@ $who_section_body  	 	= get_field('who_section_body');
 <!--PROJECT SECTIONS-->
 <section id="project-features">
 	<div class="container text-center pt-5">
-		<h2>Final Project Features</h2>
-		<p class="lead">Sint hic ne noster nescius de non aliquip tractavissent. Cillum philosophari 
-			probant enim fabulas ita ab ipsum admodum possumus. Ipsum quibusdam si multos 
-			anim, incurreret nam minim nostrud, se cillum eram sint ingeniis ita velit 
-			incurreret ea minim </p>
+		<h2><?php echo $final_project_title ?> </h2>
+		<p class="lead"><?php echo $final_project_body ?> </p>
 		<div class="row">
 
-			<div class="col-sm-4">
-				<img src="<?php bloginfo('template_directory') ?>/assets/img/icon-design.png" alt="">
-				<h3>Sexy &amp; Modern Design</h3>
-				<p>You get to work with a modern, profesional quality design &amp; layout.</p>
-			</div>
+
+
+			<?php $loop = new WP_Query( array( 'post_type' => 'project_feature', 'orderby' => 'post_id' , 'order' => 'ASC' ) ); ?>
+
+			<?php while( $loop -> have_posts()  ) : $loop -> the_post(); ?>
+
 
 			<div class="col-sm-4">
-				<img src="<?php bloginfo('template_directory') ?>/assets/img/icon-code.png" alt="">
-				<h3>Quality HTML 5 &amp; CSS 3</h3>
-				<p>You'll learn how hand-craft a stunning website with valid semantic and beautiful HTML 5 &amp; CSS 3</p>
-			</div>
 
-			<div class="col-sm-4">
-				<img src="<?php bloginfo('template_directory') ?>/assets/img/icon-cms.png" alt="">
-				<h3>Easy-to-use CMS </h3>
-				<p>Allow your clients to easily update their websites by converting your static to dynamic websites using <em> Wordpress</em></p>
+			<!--IF THE USER UPLOADED A THUMBNAIL!!-->
+				<?php 
+				if( has_post_thumbnail() ){ 
+					the_post_thumbnail();
+				} 
+				?>
+				<h3><?php the_title() ?></h3>
+				<p><?php  the_content(); ?></p>
 			</div>
+			<?php endwhile ;?>
+
+
+
+
 		</div>
 	</div>
 
 </section>
-
-
 
 
 <!--VIDEO FEATURETTE -->
@@ -286,7 +280,6 @@ $who_section_body  	 	= get_field('who_section_body');
 	</div>
 </section>
 
-
 <!--INSTRUCTOR-->
 <section id="instructor">
 	<div class="container py-5">
@@ -295,19 +288,18 @@ $who_section_body  	 	= get_field('who_section_body');
 				<div class="row" >
 					<!--style="border: 1px solid red"-->
 					<div class="col-6 col-sm-5 col-md-5 col-lg-4 col-xl-5 mx-0 px-0 ">
-						<h4 id="intructor-title"> Your Instructor<small> Brad Hussey</small>
+						<h4 id="intructor-title"> <?php echo $instructors_title ." "  ?><small><?php echo $instructors_name ?></small>
 						</h4>
 					</div>
 					<div class="col-6 col-sm-7 col-md-7 col-lg-4 col-xl-3 px-0 mx-0 ">
-						<a href="https://twitter.com" class="badge social twitter"> <i class="fa fa-twitter"></i> </a>
-						<a href="https://facebook.com" class="badge social facebook"><i class="fa fa-facebook"></i></a>
-						<a href="https://github.com" class="badge social github"><i class="fa fa-github"></i></a>
+						<a href="<?php echo $twitter_username; ?>" class="badge social twitter"> <i class="fa fa-twitter"></i> </a>
+						<a href="<?php echo $facebook_username; ?>" class="badge social facebook"><i class="fa fa-facebook"></i></a>
+						<a href="<?php echo $github_username; ?>" class="badge social github"><i class="fa fa-github"></i></a>
 					</div><!--col-lg-4-->
 				</div><!--2nd row-->
-				<p class="lead">Dolor iis quibusdam aut aute. Se multos tamen fore senserit, mentitum labore.</p>
-				<p class="lead">Dolor iis quibusdam aut aute. Se multos tamen fore senserit, mentitum labore.</p>
-				<p class="lead">Dolor iis quibusdam aut aute. Se multos tamen fore senserit, mentitum labore.</p>
-				<p class="lead">Dolor iis quibusdam aut aute. Se multos tamen fore senserit, mentitum labore.</p>
+				<p class="lead"> <?php echo $bio_excerpt ?> </p>
+				<p class="lead"> <?php echo $full_bio; ?> </p>
+				
 				<hr>
 				<h4>The Numbers <small>They Dont't Lie</small></h4>
 				<div class="row">
@@ -315,7 +307,7 @@ $who_section_body  	 	= get_field('who_section_body');
 
 						<div class="num">
 							<div class="num-content">
-								41,000+ <span>students</span>
+								<?php echo $num_students ?>+ <span>students</span>
 							</div>
 						</div>
 					</div>
@@ -323,7 +315,7 @@ $who_section_body  	 	= get_field('who_section_body');
 						<div class="num">
 
 							<div class="num-content">
-								568 <span>reviews</span>
+							<?php echo $num_reviews ?> <span>reviews</span>
 							</div>
 						</div>
 					</div>
@@ -332,7 +324,7 @@ $who_section_body  	 	= get_field('who_section_body');
 						<div class="num">
 
 							<div class="num-content">
-								8 <span>courses</span>
+								<?php echo $num_courses ?><span>courses</span>
 							</div>
 						</div>
 					</div>

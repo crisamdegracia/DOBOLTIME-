@@ -27,19 +27,19 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Elements
 # Forms
 # Navigation
-	## Links
-	## Menus
+## Links
+## Menus
 # Accessibility
 # Alignments
 # Clearings
 # Widgets
 # Content
-	## Posts and pages
-	## Comments
+## Posts and pages
+## Comments
 # Infinite scroll
 # Media
-	## Captions
-	## Galleries
+## Captions
+## Galleries
 # BOOTSTRAP TO WORDPRESS CSS MAIN STYLES!!!! v1.0.0
 --------------------------------------------------------------*/
 
@@ -480,7 +480,7 @@ h4 {
 
 a:link . a:visited {
 	color: #dd5638;
-	
+
 }
 a:hover {
 	text-decoration: none;
@@ -560,7 +560,7 @@ p {
 	color: white;
 	-webkit-font-smoothing:antialiased;
 	text-rendering: optimizeLegibility;
-	
+
 }
 
 #hero article {
@@ -605,7 +605,7 @@ p {
 	font-size: 24px;
 	border-radius: 100%;
 	-webkit-border-radius: 100%;
-	moz-border-radius: 100%;
+	-moz-border-radius: 100%;
 	position: absolute;
 	bottom: -35px;
 	left: 50%;
@@ -627,7 +627,7 @@ p {
 .feature-image {
 	display: table;
 	width: 100%;
-/*	height: 300px;*/
+	/*	height: 300px;*/
 }
 .feature-image {
 	background: url('./assets/img/stuff-feature.jpg') no-repeat;
@@ -711,17 +711,37 @@ p {
 }
 
 #kudos {
+	padding-top: 50px;
 	text-align: center;
 }
 .tesimonials  {
 	margin-bottom: 60px;
 }
+
+.testimonial_content {
+	border-radius: 50px 0 0 0;
+	border: 1px solid #223;
+	padding: 20px;
+	margin: 10px 5px;
+	
+	
+}
+
+.testimonial_content p:nth-child(1){
+	color:red;
+}
+.testimonial_content p {
+	font-size: 1.3em;
+/*	border: none;*/
+	font-style: italic;	
+}
+
 .blockquote {
-	border: 1px sol
-		padding: 0;
+/*	border: 1px solid green;*/
+	font-size: 1.3em;
+/*	padding: 0 20px;*/
 	border: none;
-	font-style: italic;
-	text-align: left;
+	font-style: italic;	
 }
 .blockquote cite {
 	display: block;
@@ -760,7 +780,7 @@ footer {
 }
 footer p {
 	margin:  0;
-	
+
 }
 footer a:link, footer a:visited {
 	color: white;
@@ -769,10 +789,10 @@ footer a:hover {
 	color: #dd5638;
 }
 footer li.signup-link a{ 
-color: #dd5638
+	color: #dd5638
 }
 footer li.signup-link a:hover{ 
-font-weight: bold;
+	font-weight: bold;
 }
 
 /*BLOG STYLES*/
@@ -830,18 +850,18 @@ font-weight: bold;
 	margin: 0 0  10px;
 	padding: 0 0  10px;
 	border-bottom: solid 1px #ddd;
-	
+
 }
 
 .widget ul {
 	list-style: none;
 	margin: 0;
 	padding: 0;
-	
+
 }
 .widget ul li {
 	margin: 0 0 5px;
-	
+
 }
 
 .widget ul li:hover {
@@ -881,13 +901,13 @@ font-weight: bold;
 }
 
 #comment h3 {
-text-align: center;
+	text-align: center;
 
 }
 
 #comment h4 {
 	font-size: 1.3em;
-	
+
 }
 #comment ol {
 	list-style: none;
@@ -908,13 +928,13 @@ text-align: center;
 	padding: 0;
 	list-style: none;
 	font-size: 0.96em;
-	
+
 }
 
 #leave-comment {
 	margin: 40px 0 0 ;
 	padding:  20px 0 0 ;
-	
+
 }
 
 /* Resources */
@@ -1005,45 +1025,45 @@ textarea {
 	#signup-header {
 		font-size: 24px;
 	}	
-	
+
 	#signup-btn {
 		font-size: 1em !important;
-/*		color: red;*/
+		/*		color: red;*/
 	}
-	
+
 }
 
 @media screen and (max-width: 240px) {
 	#signup-header {
 		font-size: 24px;
 	}	
-	
+
 	#signup-btn {
 		font-size: .7em !important;
 		color: yellow;
 	}
-	
+
 }
 
 
 @media screen and (max-width: 768px) {
-/*
+	/*
 	.resources {
-		width: 48%;
-		margin-right: 2% ;
-		min-height: 800px;
-	}
-*/
+	width: 48%;
+	margin-right: 2% ;
+	min-height: 800px;
+}
+	*/
 }
 
 
 @media screen and (max-width: 568px) {
-/*
+	/*
 	.resources {
-		width: 100%;
-		margin-right: 2% ;
-	}
-*/
+	width: 100%;
+	margin-right: 2% ;
+}
+	*/
 }
 
 

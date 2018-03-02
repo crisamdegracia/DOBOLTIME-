@@ -21,14 +21,12 @@ $num_courses									= get_field('num_courses');
 <section id="instructor">
 	<div class="container py-5">
 		<div class="row">
-			<div class="instructor-content col-12 col-sm-12 col-md-12 col-lg-8 ">
-				<div class="row" >
+			<div class="instructor-content py-4 col-12 col-sm-12 col-md-12 col-lg-8 ">
+				<div class="row">
 					<!--style="border: 1px solid red"-->
-					<div class="col-6 col-sm-5 col-md-5 col-lg-4 col-xl-5 mx-0 px-0 ">
-						<h4 id="intructor-title"> <?php echo $instructors_title ." "  ?><small><?php echo $instructors_name ?></small>
+					<div class="col-sm-8">
+						<h4 id="instructor-title"> <?php echo $instructors_title ."   "  ?><h6 class="pl-3"><?php echo $instructors_name ?></h6>
 						</h4>
-					</div>
-					<div class="col-6 col-sm-7 col-md-7 col-lg-4 col-xl-3 px-0 mx-0 ">
 
 						<?php if ( !empty( $twitter_username ) ): ?>
 
